@@ -1,0 +1,17 @@
+@function palette($name, $tone){
+  $c:map_get($palette,$name);
+  @if $c== null
+  {
+    @error "Sorry, but `#{$name}` is not a valid color for $palette.";
+  }
+  @return map_get($c,$tone);
+}
+
+@function text($name){
+  $c:map_get($opaque-text,$name);
+  @if $c== null
+  {
+    @error "Sorry, but `#{$name}` is not a valid color for $opaque-text.";
+  }
+  @return $c;
+}

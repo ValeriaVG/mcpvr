@@ -1,0 +1,209 @@
+/**
+ * Global Reset of all HTML Elements
+ *
+ * Resetting all of our HTML Elements ensures a smoother
+ * visual transition between browsers. If you don't believe me,
+ * try temporarily commenting out this block of code, then go
+ * and look at Mozilla versus Safari, both good browsers with
+ * a good implementation of CSS. The thing is, all browser CSS
+ * defaults are different and at the end of the day if visual
+ * consistency is what we're shooting for, then we need to
+ * make sure we're resetting all spacing elements.
+ *
+ */
+body,
+html {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-family: $base-font;
+	line-height: $base-line;
+	font-size: $base-font-size;
+	color: text("dark-primary");
+}
+
+* {
+	box-sizing: border-box;
+}
+
+article,
+aside,
+audio,
+canvas,
+caption,
+details,
+div,
+figure,
+footer,
+header,
+hgroup,
+iframe,
+img,
+mark,
+menu,
+nav,
+object,
+section,
+span,
+summary,
+table,
+tbody,
+td,
+tfoot,
+thead,
+tr,
+tr,
+video {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+a,
+abbr,
+address,
+b,
+blockquote,
+cite,
+code,
+dd,
+del,
+dfn,
+dl,
+dt,
+em,
+fieldset,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+i,
+ins,
+label,
+legend,
+li,
+ol,
+p,
+pre,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+ul {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+blockquote,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+	margin-bottom: $base-line;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@extend .header;
+}
+$previous-font-size: $base-font-size;
+@for $i from 6 through 1 {
+	.h#{$i},
+	h#{$i} {
+		@include adjust-font-size($ratio*$previous-font-size);
+		$previous-font-size: $ratio*$previous-font-size;
+		display: block;
+		font-weight: normal;
+	}
+}
+
+ul {
+	li:not(.fa-li) {
+		position: relative;
+		padding-left: $base-vertical-line;
+		list-style-type: none;
+
+		&:before {
+			left: $base-vertical-line/4;
+			content: $li-char;
+			color: $li-char-color;
+			position: absolute;
+		}
+	}
+	margin-bottom: $base-line;
+}
+
+ol {
+	counter-reset: list 0;
+	list-style-type: none;
+
+	li {
+		padding-left: $base-vertical-line;
+		position: relative;
+
+		&:before {
+			left: 0;
+			counter-increment: list;
+			content: counter(list) ".";
+			position: absolute;
+			color: $li-char-color;
+		}
+	}
+	margin-bottom: $base-line;
+}
+
+article,
+aside,
+audio,
+canvas,
+figcaption,
+figure,
+figure img,
+footer,
+header,
+hgroup,
+img,
+nav,
+p,
+section,
+video {
+	display: block;
+}
+
+code {
+	display: inline-block;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+
+	caption,
+	td,
+	th {
+		text-align: left;
+		vertical-align: middle;
+	}
+}
+
+a img {
+	border: 0;
+}
+
+:focus {
+	outline: 0;
+}

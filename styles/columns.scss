@@ -1,0 +1,58 @@
+$columns: 12;
+$gutter: $base-vertical-line/2;
+
+.col {
+    float: left;
+}
+
+.row {
+    @include clearfix();
+
+    &:not(.raw) {
+        margin-left: -#{ceil($gutter)};
+        margin-right: -#{ceil($gutter)};
+    }
+
+
+    &.reversed {
+        .col {
+            float: right;
+        }
+    }
+    @each $device,$width in $devices {
+         @include media-more-than($width){
+            @for $i from 1 through $columns {
+                .col.#{$device}-#{$i} {
+                    width: (100%/$columns)*$i;
+                }
+            }
+
+            &:not(.raw) {
+                @for $i from 1 through $columns {
+                    .col.#{$device}-#{$i} {
+                        padding-left: ceil($gutter);
+                        padding-right: ceil($gutter);
+                    }
+                }
+            }
+            @for $i from 1 through $columns {
+                .col.offset-#{$device}-#{$i} {
+                    padding-left: (100%/$columns)*$i;
+                }
+            }
+        }
+
+        &.#{$device}-reversed {
+            @include media-more-than($width) {
+                .col {
+                    float: right;
+                }
+            }
+            @for $i from 1 through $columns {
+                .col.offset-#{$device}-#{$i} {
+                    padding-right: (100%/$columns)*$i;
+                }
+            }
+        }
+    }
+}

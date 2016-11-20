@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Material Color Palette and Vertical Rhythm Test Suite</title>
+    <!-- Load local jQuery. This can be overridden with a ?jquery=___ param. -->
+    <script src="../libs/jquery-loader.js"></script>
+    <!-- Load local QUnit. -->
+    <link rel="stylesheet" href="../libs/qunit/qunit.css" media="screen">
+    <script src="../libs/qunit/qunit.js"></script>
+    <!-- Load local lib and tests. -->
+    <link rel="stylesheet" href="../dist/css/mcpvr.css" media="screen">
+    <script src="../src/mcpvr.js"></script>
+    <script src="VR_test.js"></script>
+    <!-- Removing access to jQuery and $. But it'll still be available as _$, if
+       you REALLY want to mess around with jQuery in the console. REMEMBER WE
+       ARE TESTING A PLUGIN HERE, THIS HELPS ENSURE BEST PRACTICES. REALLY. -->
+    <script>
+        window._$ = jQuery.noConflict(true);
+    </script>
+</head>
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture" class="lined">
+
+
+
+            <div class="leader segment">
+                leader segment
+            </div>
+            <div class="trailer padded">
+                padded trailer
+            </div>
+            <div class="container padded rhythm">
+                padded rhythm container
+            </div>
+
+            <div id="columns">
+                <div class="container">
+                    <div class="row" id="col-phone">
+                        <div class="col phone-5"></div>phone-5
+                        <div class="col phone-7">phone-7</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        <div id="lorem" >
+            <h1>Quod quidem nobis non saepe contingit.</h1>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <mark>Primum Theophrasti, Strato, physicum se voluit;</mark> <i>Sint ista Graecorum;</i> Omnia contraria, quos etiam insanos esse vultis. </p>
+
+            <h3>Mihi enim erit isdem istis fortasse iam utendum.</h3>
+
+            <p>Quid iudicant sensus? <a href='http://loripsum.net/' target='_blank'>Hunc vos beatum;</a> Sed ad rem redeamus; Iam in altera philosophiae parte. Est enim effectrix multarum et magnarum voluptatum. Prave, nequiter, turpiter cenabat; </p>
+
+            <blockquote cite='http://loripsum.net'>
+                Traditur, inquit, ab Epicuro ratio neglegendi doloris.
+            </blockquote>
+
+
+            <p><mark>Sed hoc sane concedamus.</mark> Rationis enim perfectio est virtus; Bonum incolumis acies: misera caecitas. Duo Reges: constructio interrete. </p>
+
+
+
+
+            <ol>
+                <li>An est aliquid, quod te sua sponte delectet?</li>
+                <li>Quarum ambarum rerum cum medicinam pollicetur, luxuriae licentiam pollicetur.</li>
+            </ol>
+
+
+            <ul>
+                <li>Scio enim esse quosdam, qui quavis lingua philosophari possint;</li>
+                <li>Quam ob rem tandem, inquit, non satisfacit?</li>
+                <li>Quid ait Aristoteles reliquique Platonis alumni?</li>
+                <li>Saepe ab Aristotele, a Theophrasto mirabiliter est laudata per se ipsa rerum scientia;</li>
+            </ul>
+
+
+            <ol>
+                <li>Eodem modo is enim tibi nemo dabit, quod, expetendum sit, id esse laudabile.</li>
+                <li>Quis contra in illa aetate pudorem, constantiam, etiamsi sua nihil intersit, non tamen diligat?</li>
+                <li>Hinc ceteri particulas arripere conati suam quisque videro voluit afferre sententiam.</li>
+                <li>Optime, inquam.</li>
+                <li>An dubium est, quin virtus ita maximam partem optineat in rebus humanis, ut reliquas obruat?</li>
+            </ol>
+
+
+            <ul>
+                <li>Inde sermone vario sex illa a Dipylo stadia confecimus.</li>
+                <li>Aliter enim nosmet ipsos nosse non possumus.</li>
+                <li>Quamquam te quidem video minime esse deterritum.</li>
+                <li>Nam illud vehementer repugnat, eundem beatum esse et multis malis oppressum.</li>
+            </ul>
+
+
+            <p>De illis, cum volemus. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Quare attende, quaeso. Estne, quaeso, inquam, sitienti in bibendo voluptas? <a href='http://loripsum.net/' target='_blank'>Etiam beatissimum?</a> Tollenda
+                est atque extrahenda radicitus. </p>
+
+            <h2>Ergo ita: non posse honeste vivi, nisi honeste vivatur?</h2>
+
+            <p>Prioris generis est docilitas, memoria; Certe, nisi voluptatem tanti aestimaretis. </p>
+
+            <p>Beatus sibi videtur esse moriens. Est, ut dicis, inquit; Sit sane ista voluptas. Istam voluptatem perpetuam quis potest praestare sapienti? Sit sane ista voluptas. </p>
+
+            <blockquote cite='http://loripsum.net'>
+                Quae quidem omnia et innumerabilia praeterea quis est quin intellegat et eos qui fecerint dignitatis splendore ductos inmemores fuisse utilitatum suarum nosque, cum ea laudemus, nulla alla re nisi honestate duci?
+            </blockquote>
+
+
+            <dl>
+                <dt><dfn>Stoicos roga.</dfn></dt>
+                <dd>Ut proverbia non nulla veriora sint quam vestra dogmata.</dd>
+                <dt><dfn>Immo videri fortasse.</dfn></dt>
+                <dd>Nam et complectitur verbis, quod vult, et dicit plane, quod intellegam;</dd>
+                <dt><dfn>Ille incendat?</dfn></dt>
+                <dd>Ego vero isti, inquam, permitto.</dd>
+                <dt><dfn>Peccata paria.</dfn></dt>
+                <dd>Cur tantas regiones barbarorum pedibus obiit, tot maria transmisit?</dd>
+                <dt><dfn>Erat enim Polemonis.</dfn></dt>
+                <dd>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi;</dd>
+            </dl>
+
+
+            <dl>
+                <dt><dfn>Avaritiamne minuis?</dfn></dt>
+                <dd>Hic quoque suus est de summoque bono dissentiens dici vere Peripateticus non potest.</dd>
+                <dt><dfn>Idem adhuc;</dfn></dt>
+                <dd>Qua ex cognitione facilior facta est investigatio rerum occultissimarum.</dd>
+            </dl>
+
+
+            <p>Quibusnam praeteritis? Eam stabilem appellas. <mark>Quaerimus enim finem bonorum.</mark> Bonum incolumis acies: misera caecitas. Quid est enim aliud esse versutum? </p>
+
+            <p><i>Confecta res esset.</i> <a href='http://loripsum.net/' target='_blank'>Quod vestri non item.</a> Sed nimis multa. Itaque ab his ordiamur. Et nemo nimium beatus est; </p>
+
+            <p><a href='http://loripsum.net/' target='_blank'>Traditur, inquit, ab Epicuro ratio neglegendi doloris.</a> Zenonis est, inquam, hoc Stoici. Suo enim quisque studio maxime ducitur. <b>Recte, inquit, intellegis.</b> Zenonis est, inquam, hoc
+                Stoici. Non autem hoc: igitur ne illud quidem. </p>
+
+            <p>Eam stabilem appellas. <mark>Inde igitur, inquit, ordiendum est.</mark> </p>
+
+        </div>
+
+
+
+</body>
+
+</html>

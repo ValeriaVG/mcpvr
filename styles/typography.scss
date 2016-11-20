@@ -1,0 +1,108 @@
+.leader {
+    margin-top: $base-line;
+}
+
+.trailer {
+    margin-bottom: $base-line;
+}
+
+.rhythm {
+    @extend .leader;
+    @extend .trailer;
+}
+
+.double.leader {
+    margin-top: $base-line*2;
+}
+
+.double.trailer {
+    margin-bottom: $base-line*2;
+}
+
+.double.rhythm {
+    @extend .double.leader;
+    @extend .double.trailer;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+ol,
+ul {
+    &.relaxed {
+        li {
+            @extend .trailer;
+        }
+    }
+}
+
+.padded-top {
+    padding-top: $base-line;
+}
+
+.padded-bottom {
+    padding-bottom: $base-line;
+}
+
+.padded {
+    @extend .padded-top;
+    @extend .padded-bottom;
+}
+
+a {
+    color: palette($link-color,'500');
+    transition: 300ms;
+
+    &:hover {
+        color: palette($link-color,'900');
+        opacity: 1;
+    }
+}
+
+body .bold {
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0 $base-line - $base-font-size;
+    line-height: $base-line*2;
+    border-radius: $base-radius;
+
+    &.small {
+        padding: 0 ($base-line - $base-font-size)/2;
+        line-height: $base-line;
+        border-radius: $base-radius/2;
+    }
+
+    &.big {
+        padding: $base-line;
+        @include adjust-font-size($base-font-size*2);
+        border-radius: $base-radius*2;
+    }
+}
+
+.divider,
+hr {
+    width: 100%;
+    height: 0;
+    border-bottom: 1px solid text("dark-divider");
+}
+
+.header {
+    font-family: $header-font;
+    color: $header-color;
+}
+
+mark {
+    background-color: palette($primary-color,'50');
+}

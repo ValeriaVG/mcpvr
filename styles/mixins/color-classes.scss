@@ -1,0 +1,29 @@
+@each $name,$color in $palette {
+    .#{$name} {
+        color: map-get($color,"500");
+    }
+
+    .bg-#{$name} {
+        &,
+        & .dropdown ul {
+            background-color: map-get($color,"500");
+        }
+    }
+    @each $tone,$value in $color {
+        .#{$name}-#{$tone} {
+            color: $value;
+        }
+
+        .bg-#{$name}-#{$tone} {
+            background-color: $value;
+        }
+    }
+}
+@each $name,$value in $opaque-text {
+  .bg-#{$name} {
+      background: $value;
+  }
+    .#{$name} {
+        color: $value;
+    }
+}

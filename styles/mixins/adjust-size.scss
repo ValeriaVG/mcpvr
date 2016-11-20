@@ -1,0 +1,7 @@
+@mixin adjust-font-size($size) {
+  font-size:$size;
+  line-height:ceil($size/$base-line)*$base-line;
+}
+@function adjust-size($old-size) {
+ @return ceil($old-size/$base-line)*$base-line;
+}

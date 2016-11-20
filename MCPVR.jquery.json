@@ -1,0 +1,27 @@
+{
+  "name": "MCPVR",
+  "title": "Material Color Palette and Vertical Rhythm ",
+  "description": "Material Color Palette and Vertical Rhythm front-end framework",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ValeriaVG/MCPVR",
+  "author": {
+    "name": "ValeriaVG",
+    "email": "valeria.viana.gusmao@gmail.com",
+    "url": "http://vvgcreative.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ValeriaVG/MCPVR.git"
+  },
+  "bugs": "https://github.com/ValeriaVG/MCPVR/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ValeriaVG/MCPVR/blob/master/LICENSE-MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*"
+  },
+  "keywords": []
+}

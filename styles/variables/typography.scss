@@ -1,0 +1,13 @@
+$base-line:20px;//Base line height for vertical rhythm
+$base-vertical-line:$base-line;
+$base-font-size:15px;
+$base-radius:10px;//Basic border-radius
+$ratio:1.168;//Difference between scaled items, e.g. h1-h6
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|PT+Sans+Narrow:400,600&subset=cyrillic');
+$base-font:'Open Sans', sans-serif;
+$header-font:'PT Sans Narrow', sans-serif;
+$primary-color:'pink';
+$header-color:text('dark-hint');
+$link-color:'blue';
+$li-char:'\2022';
+$li-char-color:text('dark-hint');
