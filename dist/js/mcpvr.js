@@ -1,4 +1,4 @@
-/*! Material Color Palette and Vertical Rhythm  - v0.1.0 - 2016-11-20
+/*! Material Color Palette and Vertical Rhythm  - v0.1.0 - 2016-11-21
 * https://github.com/ValeriaVG/MCPVR
 * Copyright (c) 2016 ValeriaVG; Licensed MIT */
 (function($) {

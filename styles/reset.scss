@@ -20,6 +20,7 @@ html {
 	line-height: $base-line;
 	font-size: $base-font-size;
 	color: text("dark-primary");
+	min-width:device("phone");
 }
 
 * {
@@ -131,8 +132,8 @@ $previous-font-size: $base-font-size;
 	}
 }
 
-ul {
-	li:not(.fa-li) {
+ul:not(.menu) {
+	li:not(.fa-li){
 		position: relative;
 		padding-left: $base-vertical-line;
 		list-style-type: none;

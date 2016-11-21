@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
         clean: {
-            files: ['dist']
+            files: ['dist/css','dist/js']
         },
         concat: {
             options: {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             dist: {
                 src: ['src/mcpvr.js'],
                 dest: 'dist/js/mcpvr.js'
-            },
+            }
         },
         uglify: {
             options: {
@@ -61,6 +61,7 @@ module.exports = function(grunt) {
                 },
                 files: { // Dictionary of files
                     'dist/css/mcpvr.css': 'styles/mcpvr.scss'
+
                 },
                 reporterOutput: ''
 

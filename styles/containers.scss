@@ -3,30 +3,20 @@
     padding-left: $base-vertical-line;
     padding-right: $base-vertical-line;
     @include clearfix();
-
-      margin-left:auto;
-      margin-right:auto;
-
-
-    $previous:device('phone');
-    @each $device,$width in $devices {
-         @if($previous>0px ){
-            @include media-more-than($width) {
-                min-width: $previous + $base-line*2;
-                &.text{
-                  width: $previous + $base-line*2;
-                }
-            }
-
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    @include media-more-than($base-vertical-line*30) {
+        &.text {
+            width: $base-vertical-line*28;
         }
-        $previous:$width;
     }
-
-
 }
-.segment{
-  padding:ceil($base-vertical-line/2) ceil($base-vertical-line/2) floor($base-vertical-line/2) floor($base-vertical-line/2);
+
+.segment {
+    padding: ceil($base-vertical-line/2) ceil($base-vertical-line/2) floor($base-vertical-line/2) floor($base-vertical-line/2);
 }
-.double-padded{
-  padding:$base-vertical-line;
+
+.double-padded {
+    padding: $base-vertical-line;
 }

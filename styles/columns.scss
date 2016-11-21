@@ -3,6 +3,7 @@ $gutter: $base-vertical-line/2;
 
 .col {
     float: left;
+    width:100%;
 }
 
 .row {
@@ -15,10 +16,11 @@ $gutter: $base-vertical-line/2;
 
 
     &.reversed {
-        .col {
+        &>.col {
             float: right;
         }
     }
+    $previous:0px;
     @each $device,$width in $devices {
          @include media-more-than($width){
             @for $i from 1 through $columns {
@@ -37,22 +39,23 @@ $gutter: $base-vertical-line/2;
             }
             @for $i from 1 through $columns {
                 .col.offset-#{$device}-#{$i} {
-                    padding-left: (100%/$columns)*$i;
+                    margin-left: (100%/$columns)*$i;
                 }
             }
         }
 
         &.#{$device}-reversed {
-            @include media-more-than($width) {
+            @include media-between($previous,$width){
                 .col {
                     float: right;
                 }
             }
             @for $i from 1 through $columns {
                 .col.offset-#{$device}-#{$i} {
-                    padding-right: (100%/$columns)*$i;
+                    margin-right: (100%/$columns)*$i;
                 }
             }
         }
+        $previous:$width;
     }
 }

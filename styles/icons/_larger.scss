@@ -1,0 +1,14 @@
+// Icon Sizes
+// -------------------------
+
+/* makes the font 33% larger relative to the icon container */
+.#{$fa-css-prefix}-lg {
+/*  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;*/
+  @include adjust-font-size(4*$base-font-size);
+}
+.#{$fa-css-prefix}-2x {   @include adjust-font-size(2*$base-font-size); }
+.#{$fa-css-prefix}-3x {   @include adjust-font-size(3*$base-font-size); }
+.#{$fa-css-prefix}-4x {   @include adjust-font-size(4*$base-font-size); }
+.#{$fa-css-prefix}-5x {   @include adjust-font-size(5*$base-font-size); }

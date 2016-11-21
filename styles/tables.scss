@@ -1,0 +1,15 @@
+table.table{
+  th,td{
+    @extend .segment;
+
+  }
+  th+td,td+td,th+th{
+    border-left:1px solid text('dark-divider');
+  }
+  tr+tr{
+    border-top:1px solid text('dark-divider');
+  }
+  thead{
+    border-bottom:1px solid text('dark-divider');
+  }
+}

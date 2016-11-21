@@ -1,0 +1,148 @@
+ul.menu {
+    list-style-type: none;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    li.active a {
+        text-decoration: underline;
+    }
+
+    &,
+    &.dark {
+        &,
+        a {
+            color: text('dark-secondary');
+        }
+
+        a:hover,
+        li.active,
+        li.active > a {
+            color: text('dark-primary');
+        }
+    }
+
+    &.light {
+        &,
+        a {
+            color: text('light-secondary');
+        }
+
+        a:hover,
+        li.active,
+        li.active > a {
+            color: text('light-primary');
+        }
+    }
+    @each $name,$color in $palette {
+        &.#{$name} {
+            &,
+            a {
+                color: map-get($color,"400");
+            }
+
+            a:hover,
+            li.active,
+            li.active > a {
+                color: map-get($color,"A400");
+            }
+        }
+    }
+
+    &.horizontal {
+        @include clearfix;
+        margin-left: - ceil($base-vertical-line/2);
+        margin-right: - floor($base-vertical-line/2);
+
+        li {
+            float: left;
+            padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
+        }
+    }
+
+    &.decorated {
+        li {
+            position: relative;
+            padding: 0;
+
+            & > a {
+                display: block;
+                text-decoration: none;
+                padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
+                //transition: none;
+            }
+        }
+
+        li.active,
+        li:hover {
+            &:after {
+                content: "";
+                height: 100%;
+                position: absolute;
+                right: 0;
+                top:0;
+                width: 3px;
+                display: block;
+            }
+        }
+
+        &.text-left {
+            li.active,
+            li:hover {
+                &:after {
+                    right: auto;
+                    left: 0;
+
+                }
+            }
+        }
+
+        &.horizontal {
+            li.active,
+            li:hover {
+                &:after {
+                    left: 0;
+                    right: 0;
+                    top:auto;
+                    height: 3px;
+                    bottom: 0;
+                    width: 100%;
+                }
+            }
+        }
+
+        &,
+        &.dark {
+            li.active,
+            li:hover {
+                &:after {
+                    background-color: text('dark-secondary');
+                }
+            }
+        }
+
+        &.light {
+            li.active,
+            li:hover {
+                &:after {
+                    background-color: text('light-secondary');
+                }
+            }
+        }
+        @each $name,$color in $palette {
+            &.#{$name} {
+                li.active,
+                li:hover {
+                    &:after {
+                        background-color: map-get($color,"500");
+                    }
+                }
+            }
+        }
+    }
+}
