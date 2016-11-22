@@ -1,38 +1,27 @@
-/*
- * MCPVR
- * https://github.com/ValeriaVG/MCPVR
- *
- * Copyright (c) 2016 ValeriaVG
- * Licensed under the MIT license.
- */
+(function() {
+    'use strict';
+    window.mcpvr = function(action) {
+        /*Always*/
+        /*Adjust height of equal-height columns*/
+        makeColumnsEqual();
 
-(function($) {
+        switch (action) {
+            case 'ready':
+                /*Only when ready*/
+                break;
+            case 'resize':
+                /*Only when resized*/
+                break;
+            default:
 
-  // Collection method.
-  $.fn.MCPVR = function() {
-    return this.each(function(i) {
-      // Do something awesome to each selected element.
-      $(this).html('awesome' + i);
+                break;
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        mcpvr('ready');
     });
-  };
-
-  // Static method.
-  $.MCPVR = function(options) {
-    // Override default options with passed-in options.
-    options = $.extend({}, $.MCPVR.options, options);
-    // Return something awesome.
-    return 'awesome' + options.punctuation;
-  };
-
-  // Static method default options.
-  $.MCPVR.options = {
-    punctuation: '.'
-  };
-
-  // Custom selector.
-  $.expr[':'].MCPVR = function(elem) {
-    // Is this element awesome?
-    return $(elem).text().indexOf('awesome') !== -1;
-  };
-
-}(jQuery));
+    window.addEventListener('resize', function(event) {
+        mcpvr('resize');
+    });
+}());

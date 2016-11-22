@@ -3663,21 +3663,20 @@ ul.menu.horizontal:after {
   clear: both;
   display: block;
 }
-ul.menu.horizontal li {
+ul.menu.horizontal > li {
   float: left;
   padding: 10px 10px 10px 10px;
 }
-ul.menu.decorated li {
+ul.menu.decorated > li {
   position: relative;
   padding: 0;
 }
-ul.menu.decorated li > a {
+ul.menu.decorated > li > a {
   display: block;
   text-decoration: none;
   padding: 10px 10px 10px 10px;
 }
-ul.menu.decorated li.active:after,
-ul.menu.decorated li:hover:after {
+ul.menu.decorated > li:after {
   content: "";
   height: 100%;
   position: absolute;
@@ -3685,104 +3684,93 @@ ul.menu.decorated li:hover:after {
   top: 0;
   width: 3px;
   display: block;
+  transform: scaleY(0.01);
+  transition: 300ms;
 }
-ul.menu.decorated.text-left li.active:after,
-ul.menu.decorated.text-left li:hover:after {
+ul.menu.decorated > li.active:after, ul.menu.decorated > li:hover:after {
+  transform: scaleY(1);
+  transition: 500ms;
+}
+ul.menu.decorated.text-left > li.active:after, ul.menu.decorated.text-left > li:hover:after {
   right: auto;
   left: 0;
 }
-ul.menu.decorated.horizontal li.active:after,
-ul.menu.decorated.horizontal li:hover:after {
+ul.menu.decorated.horizontal > li:after {
+  content: "";
   left: 0;
   right: 0;
   top: auto;
   height: 3px;
   bottom: 0;
   width: 100%;
+  transform: scaleX(0.01);
+  transition: 300ms;
 }
-ul.menu.decorated li.active:after,
-ul.menu.decorated li:hover:after, ul.menu.decorated.dark li.active:after,
-ul.menu.decorated.dark li:hover:after {
+ul.menu.decorated.horizontal > li.active:after, ul.menu.decorated.horizontal > li:hover:after {
+  transform: scaleX(1);
+  transition: 500ms;
+}
+ul.menu.decorated > li.active:after, ul.menu.decorated > li:hover:after, ul.menu.decorated.dark > li.active:after, ul.menu.decorated.dark > li:hover:after {
   background-color: rgba(0, 0, 0, 0.54);
 }
-ul.menu.decorated.light li.active:after,
-ul.menu.decorated.light li:hover:after {
+ul.menu.decorated.light > li.active:after, ul.menu.decorated.light > li:hover:after {
   background-color: rgba(255, 255, 255, 0.7);
 }
-ul.menu.decorated.red li.active:after,
-ul.menu.decorated.red li:hover:after {
+ul.menu.decorated.red > li.active:after, ul.menu.decorated.red > li:hover:after {
   background-color: #f44336;
 }
-ul.menu.decorated.pink li.active:after,
-ul.menu.decorated.pink li:hover:after {
+ul.menu.decorated.pink > li.active:after, ul.menu.decorated.pink > li:hover:after {
   background-color: #E91E63;
 }
-ul.menu.decorated.purple li.active:after,
-ul.menu.decorated.purple li:hover:after {
+ul.menu.decorated.purple > li.active:after, ul.menu.decorated.purple > li:hover:after {
   background-color: #9C27B0;
 }
-ul.menu.decorated.deep-purple li.active:after,
-ul.menu.decorated.deep-purple li:hover:after {
+ul.menu.decorated.deep-purple > li.active:after, ul.menu.decorated.deep-purple > li:hover:after {
   background-color: #673AB7;
 }
-ul.menu.decorated.indigo li.active:after,
-ul.menu.decorated.indigo li:hover:after {
+ul.menu.decorated.indigo > li.active:after, ul.menu.decorated.indigo > li:hover:after {
   background-color: #3F51B5;
 }
-ul.menu.decorated.blue li.active:after,
-ul.menu.decorated.blue li:hover:after {
+ul.menu.decorated.blue > li.active:after, ul.menu.decorated.blue > li:hover:after {
   background-color: #2196F3;
 }
-ul.menu.decorated.light-blue li.active:after,
-ul.menu.decorated.light-blue li:hover:after {
+ul.menu.decorated.light-blue > li.active:after, ul.menu.decorated.light-blue > li:hover:after {
   background-color: #03A9F4;
 }
-ul.menu.decorated.cyan li.active:after,
-ul.menu.decorated.cyan li:hover:after {
+ul.menu.decorated.cyan > li.active:after, ul.menu.decorated.cyan > li:hover:after {
   background-color: #00BCD4;
 }
-ul.menu.decorated.teal li.active:after,
-ul.menu.decorated.teal li:hover:after {
+ul.menu.decorated.teal > li.active:after, ul.menu.decorated.teal > li:hover:after {
   background-color: #009688;
 }
-ul.menu.decorated.green li.active:after,
-ul.menu.decorated.green li:hover:after {
+ul.menu.decorated.green > li.active:after, ul.menu.decorated.green > li:hover:after {
   background-color: #4CAF50;
 }
-ul.menu.decorated.light-green li.active:after,
-ul.menu.decorated.light-green li:hover:after {
+ul.menu.decorated.light-green > li.active:after, ul.menu.decorated.light-green > li:hover:after {
   background-color: #8BC34A;
 }
-ul.menu.decorated.lime li.active:after,
-ul.menu.decorated.lime li:hover:after {
+ul.menu.decorated.lime > li.active:after, ul.menu.decorated.lime > li:hover:after {
   background-color: #CDDC39;
 }
-ul.menu.decorated.yellow li.active:after,
-ul.menu.decorated.yellow li:hover:after {
+ul.menu.decorated.yellow > li.active:after, ul.menu.decorated.yellow > li:hover:after {
   background-color: #FFEB3B;
 }
-ul.menu.decorated.amber li.active:after,
-ul.menu.decorated.amber li:hover:after {
+ul.menu.decorated.amber > li.active:after, ul.menu.decorated.amber > li:hover:after {
   background-color: #FFC107;
 }
-ul.menu.decorated.orange li.active:after,
-ul.menu.decorated.orange li:hover:after {
+ul.menu.decorated.orange > li.active:after, ul.menu.decorated.orange > li:hover:after {
   background-color: #FF9800;
 }
-ul.menu.decorated.deep-orange li.active:after,
-ul.menu.decorated.deep-orange li:hover:after {
+ul.menu.decorated.deep-orange > li.active:after, ul.menu.decorated.deep-orange > li:hover:after {
   background-color: #FF5722;
 }
-ul.menu.decorated.brown li.active:after,
-ul.menu.decorated.brown li:hover:after {
+ul.menu.decorated.brown > li.active:after, ul.menu.decorated.brown > li:hover:after {
   background-color: #795548;
 }
-ul.menu.decorated.grey li.active:after,
-ul.menu.decorated.grey li:hover:after {
+ul.menu.decorated.grey > li.active:after, ul.menu.decorated.grey > li:hover:after {
   background-color: #9E9E9E;
 }
-ul.menu.decorated.blue-grey li.active:after,
-ul.menu.decorated.blue-grey li:hover:after {
+ul.menu.decorated.blue-grey > li.active:after, ul.menu.decorated.blue-grey > li:hover:after {
   background-color: #607D8B;
 }
 

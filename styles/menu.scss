@@ -59,14 +59,14 @@ ul.menu {
         margin-left: - ceil($base-vertical-line/2);
         margin-right: - floor($base-vertical-line/2);
 
-        li {
+        &>li {
             float: left;
             padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
         }
     }
 
     &.decorated {
-        li {
+        &>li {
             position: relative;
             padding: 0;
 
@@ -78,9 +78,7 @@ ul.menu {
             }
         }
 
-        li.active,
-        li:hover {
-            &:after {
+        &>li:after {
                 content: "";
                 height: 100%;
                 position: absolute;
@@ -88,12 +86,21 @@ ul.menu {
                 top:0;
                 width: 3px;
                 display: block;
+                transform: scaleY(0.01);
+                transition: 300ms;
+            }
+
+        &>li.active,
+        &>li:hover {
+            &:after {
+              transform: scaleY(1);
+              transition: 500ms;
             }
         }
 
         &.text-left {
-            li.active,
-            li:hover {
+            &>li.active,
+            &>li:hover {
                 &:after {
                     right: auto;
                     left: 0;
@@ -103,23 +110,32 @@ ul.menu {
         }
 
         &.horizontal {
-            li.active,
-            li:hover {
+
+              &>li:after {
+                content:"";
+                  left: 0;
+                  right: 0;
+                  top:auto;
+                  height: 3px;
+                  bottom: 0;
+                  width: 100%;
+                  transform: scaleX(0.01);
+                  transition: 300ms;
+              }
+
+            &>li.active,
+            &>li:hover {
                 &:after {
-                    left: 0;
-                    right: 0;
-                    top:auto;
-                    height: 3px;
-                    bottom: 0;
-                    width: 100%;
+                    transform: scaleX(1);
+                    transition: 500ms;
                 }
             }
         }
 
         &,
         &.dark {
-            li.active,
-            li:hover {
+            &>li.active,
+            &>li:hover {
                 &:after {
                     background-color: text('dark-secondary');
                 }
@@ -127,8 +143,8 @@ ul.menu {
         }
 
         &.light {
-            li.active,
-            li:hover {
+            &>li.active,
+            &>li:hover {
                 &:after {
                     background-color: text('light-secondary');
                 }
@@ -136,8 +152,8 @@ ul.menu {
         }
         @each $name,$color in $palette {
             &.#{$name} {
-                li.active,
-                li:hover {
+                &>li.active,
+                &>li:hover {
                     &:after {
                         background-color: map-get($color,"500");
                     }

@@ -1,4 +1,3 @@
-
 ( ( function( QUnit, $ ) {
     /*
       ======== A Handy Little QUnit Reference ========
@@ -21,29 +20,35 @@
         throws(block, [expected], [message])
     */
 
-    QUnit.module( "Vertical Rhythm", {
+    QUnit.module( "Columns", {
 
         // This will run before each test in this module.
         beforeEach: function( assert ) {
 
             this.root = $( "#qunit-fixture" );
-              this.elems = this.root.children();
-            this.baseline = 20; //Base-line in pixels
+            this.columns = 12;
+
         }
     } );
 
-    QUnit.test( "has rhythm", function( assert ) {
+    QUnit.test( "are equal-height", function( assert ) {
 
         //Expect(1);
-        var baseline = this.baseline;
-        this.elems.each( function() {
+        var row = $( "#qunit-fixture" ).find( ".equal-height" );
 
-            assert.strictEqual( $( this ).outerHeight() % baseline, 0, $( this ).prop( "tagName" ) + "#" + $( this ).prop( "id" ) + "." + "." + $( this ).prop( "class" ).split( " " ).join( "." ) + " should have vertical rhythm" );
-        } );
-        $( "#lorem" ).children().each( function() {
-            assert.strictEqual( $( this ).outerHeight() % baseline, 0, $( this ).prop( "tagName" ) + " should have vertical rhythm" );
+        var h = $( row ).css( "height" );
+        makeColumnsEqual();
+        row.children().each( function() {
+          assert.strictEqual( $( this ).css( "height" ), h, $( this ).text() + " should have height of " + h );
         } );
 
+
+        makeColumnsEqual('.not-equal-height');
+        var row = $( "#qunit-fixture" ).find( ".not-equal-height" );
+
+
+          assert.notEqual( $(row.children()[0] ).css( "height" ), h, $( this ).text() + " should not have height of " + h );
+      
 
     } );
 

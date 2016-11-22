@@ -5,15 +5,21 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         // Metadata.
-        pkg: grunt.file.readJSON('MCPVR.jquery.json'),
+        pkg: grunt.file.readJSON('package.json'),
         banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
             '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
             '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>;' +
+            ' Licensed GPL-3.0 */\n',
         // Task configuration.
         clean: {
-            files: ['dist/css','dist/js']
+            main: {
+                src: ['dist/css', 'dist/js', 'docs/css', 'docs/js']
+            }
+            /*,
+                      dev:{
+                        src: ['temp']
+                      }*/
         },
         concat: {
             options: {
@@ -21,7 +27,7 @@ module.exports = function(grunt) {
                 stripBanners: true
             },
             dist: {
-                src: ['src/mcpvr.js'],
+                src: ['src/**/*.js'],
                 dest: 'dist/js/mcpvr.js'
             }
         },
@@ -35,7 +41,33 @@ module.exports = function(grunt) {
             },
         },
         qunit: {
-            all: ['test/**/*.html']
+            options: {
+
+                page: {
+                    viewportSize: {
+                        width: 1400,
+                        height: 900
+                    }
+                }
+            },
+
+            main: ['test/*.html'],
+            dev: {
+                src: ['test/*.html'],
+                options: {
+                    '--web-security': 'no',
+                    timeout: 10000,
+                    coverage: {
+                        disposeCollector: true,
+                        src: ['src/**/*.js'],
+                        instrumentedFiles: 'temp/',
+                        htmlReport: 'report/coverage',
+                        lcovReport: 'report/',
+                        linesThresholdPct: 85
+                    }
+                }
+            }
+
         },
         jshint: {
             options: {
@@ -48,9 +80,9 @@ module.exports = function(grunt) {
             src: {
                 src: ['src/**/*.js']
             },
-            test: {
-                src: ['test/**/*.js']
-            },
+            //  test: {
+            //      src: ['test/**/*.js']
+            //  },
 
         },
         sass: { // Task
@@ -65,6 +97,29 @@ module.exports = function(grunt) {
                 },
                 reporterOutput: ''
 
+            }
+        },
+        cssmin: { // Task
+
+            dist: { // Target
+
+                files: { // Dictionary of files
+                    'dist/css/mcpvr.min.css': 'dist/css/mcpvr.css'
+                }
+
+            }
+        },
+        copy: {
+            main: {
+                files: [
+
+                    {
+                        expand: true,
+                        cwd: 'dist/',
+                        src: ['css/**', 'js/**'],
+                        dest: 'docs/'
+                    },
+                ]
             }
         },
         watch: {
@@ -93,10 +148,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-qunit-istanbul');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     // Default task.
-    grunt.registerTask('default', ['jshint','qunit', 'clean', 'sass', 'concat', 'uglify']);
+    grunt.registerTask('default', ['jshint', 'clean', 'sass', 'qunit:main', 'concat', 'uglify', 'cssmin', 'copy']);
+    grunt.registerTask('test', ['jshint', 'clean', 'sass', 'qunit:dev', 'concat', 'copy']);
 
 };
