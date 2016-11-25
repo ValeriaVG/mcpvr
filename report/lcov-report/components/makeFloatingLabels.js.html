@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/makeFloatingLabels.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">components/</a> makeFloatingLabels.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">21.43% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">65.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>23/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var makeFloatingLabels = function(selector) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (selector === undefined) {
+        selector = '.form';
+    }
+    var inputTypes = ['text', 'email', 'tel', 'password', 'number'];
+    var items = document.querySelectorAll(selector);
+&nbsp;
+    var adjustLabels = <span class="fstat-no" title="function not covered" >function(event) {</span>
+<span class="cstat-no" title="statement not covered" >        var value;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (event.clipboardData) {</span>
+<span class="cstat-no" title="statement not covered" >            value = event.clipboardData.getData('text');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            value = event.target.value;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var label = document.querySelector('LABEL[for="' + event.target.getAttribute("id") + '"]');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (event.type === 'focus') {</span>
+<span class="cstat-no" title="statement not covered" >            label.setAttribute('class', 'active');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (value.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            label.setAttribute('class', 'hidden');</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            if (event.type === 'blur') {</span>
+<span class="cstat-no" title="statement not covered" >                label.removeAttribute('class');</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                label.setAttribute('class', 'active');</span>
+            }
+        }
+&nbsp;
+    };
+&nbsp;
+&nbsp;
+    for (var i = 0; i &lt; items.length; i++) {
+        var inputs = items[i].querySelectorAll('input');
+        var textareas = items[i].querySelectorAll('textarea');
+        for (var j = 0; j &lt; inputs.length; j++) {
+            var input = inputs[j];
+            <span class="missing-if-branch" title="else path not taken" >E</span>if ((inputTypes.indexOf(input.getAttribute('type')) !== -1) ){
+                //Adding labels and needed data attributes
+                var label = document.createElement('LABEL');
+                label.setAttribute('for',  i + '_' + j);
+                label.textContent = input.getAttribute('placeholder');
+                input.setAttribute('id', i + '_' + j);
+                <span class="missing-if-branch" title="else path not taken" >E</span>if (input.value.length === 0) {
+                    label.setAttribute('class', 'hidden');
+                }
+                items[i].insertBefore(label, input);
+                //Here goes the magic
+                input.addEventListener('keyup', adjustLabels);
+                input.addEventListener('focus', adjustLabels);
+                input.addEventListener('blur', adjustLabels);
+                input.addEventListener('paste', adjustLabels);
+            }
+        }
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 26 2016 00:51:38 GMT+0300 (MSK)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

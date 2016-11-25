@@ -87,14 +87,14 @@ ul.menu {
                 width: 3px;
                 display: block;
                 transform: scaleY(0.01);
-                transition: 300ms;
+                transition:transform 300ms;
             }
 
         &>li.active,
         &>li:hover {
             &:after {
               transform: scaleY(1);
-              transition: 500ms;
+              transition: transform 500ms;
             }
         }
 
@@ -120,14 +120,14 @@ ul.menu {
                   bottom: 0;
                   width: 100%;
                   transform: scaleX(0.01);
-                  transition: 300ms;
+                  transition: transform 300ms;
               }
 
             &>li.active,
             &>li:hover {
                 &:after {
                     transform: scaleX(1);
-                    transition: 500ms;
+                    transition: transform 500ms;
                 }
             }
         }

@@ -12,10 +12,10 @@
 
 
     <script src="https://code.jquery.com/qunit/qunit-2.0.1.js"></script>
-    <script src="../src/components/makeColumnsEqual.js"></script>
+    <script src="../src/components/makeFloatingLabels.js"></script>
     <!-- Load local lib and tests. -->
     <link rel="stylesheet" href="../dist/css/mcpvr.css" media="screen">
-    <script src="columns_test.js"></script>
+    <script src="forms_test.js"></script>
 
 
 
@@ -24,26 +24,19 @@
 <body>
     <div id="qunit"></div>
     <div id="qunit-fixture">
-        <div class="row equal-height">
-            <div class="col desktop-4">1</div>
-            <div class="col tablet-4">
-                <div style="height:50px">2</div>
-            </div>
-            <div class="col phone-4">3</div>
-
-        </div>
-        <div class="row not-equal-height">
-            <div class="col desktop-12">1</div>
-            <div class="col tablet-4">
-                <div style="height:50px">2</div>
-            </div>
-            <div class="col phone-4">3</div>
-
-        </div>
 
 
-    </div>
 
+
+    <div class="container text">
+    <form class="form">
+
+      <input type="text" placeholder="Your name">
+      <input type="email" placeholder="Email">
+    </form>
+  </div>
+
+</div>
 
 </body>
 

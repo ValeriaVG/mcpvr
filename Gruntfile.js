@@ -38,7 +38,7 @@ module.exports = function(grunt) {
             dist: {
                 src: '<%= concat.dist.dest %>',
                 dest: 'dist/js/mcpvr.min.js'
-            },
+            }
         },
         qunit: {
             options: {
@@ -79,10 +79,7 @@ module.exports = function(grunt) {
             },
             src: {
                 src: ['src/**/*.js']
-            },
-            //  test: {
-            //      src: ['test/**/*.js']
-            //  },
+            }
 
         },
         sass: { // Task
@@ -118,7 +115,7 @@ module.exports = function(grunt) {
                         cwd: 'dist/',
                         src: ['css/**', 'js/**'],
                         dest: 'docs/'
-                    },
+                    }
                 ]
             }
         },
@@ -138,7 +135,7 @@ module.exports = function(grunt) {
             test: {
                 files: '<%= jshint.test.src %>',
                 tasks: ['jshint:test', 'qunit']
-            },
+            }
         },
 
     });

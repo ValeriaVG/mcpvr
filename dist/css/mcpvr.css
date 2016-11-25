@@ -3685,11 +3685,11 @@ ul.menu.decorated > li:after {
   width: 3px;
   display: block;
   transform: scaleY(0.01);
-  transition: 300ms;
+  transition: transform 300ms;
 }
 ul.menu.decorated > li.active:after, ul.menu.decorated > li:hover:after {
   transform: scaleY(1);
-  transition: 500ms;
+  transition: transform 500ms;
 }
 ul.menu.decorated.text-left > li.active:after, ul.menu.decorated.text-left > li:hover:after {
   right: auto;
@@ -3704,11 +3704,11 @@ ul.menu.decorated.horizontal > li:after {
   bottom: 0;
   width: 100%;
   transform: scaleX(0.01);
-  transition: 300ms;
+  transition: transform 300ms;
 }
 ul.menu.decorated.horizontal > li.active:after, ul.menu.decorated.horizontal > li:hover:after {
   transform: scaleX(1);
-  transition: 500ms;
+  transition: transform 500ms;
 }
 ul.menu.decorated > li.active:after, ul.menu.decorated > li:hover:after, ul.menu.decorated.dark > li.active:after, ul.menu.decorated.dark > li:hover:after {
   background-color: rgba(0, 0, 0, 0.54);
@@ -6829,6 +6829,42 @@ table.table thead {
   margin: 0;
   overflow: visible;
   clip: auto;
+}
+
+.form label {
+  color: rgba(0, 0, 0, 0.38);
+  font-size: 10px;
+  line-height: 20px;
+  padding-left: 20px;
+  position: absolute;
+  display: inline;
+  text-overflow: ellipsis;
+  opacity: 1;
+  transition: 100ms ease-out;
+  transform: translateY(0);
+}
+.form label.active {
+  color: #03A9F4;
+  transition: 100ms ease-out;
+}
+.form label.error {
+  color: #f44336;
+  transition: 100ms ease-out;
+}
+.form label.hidden {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: 100ms ease-out;
+}
+.form input[type=email], .form input[type=number], .form input[type=password], .form input[type=tel], .form input[type=text] {
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 20px 20px 12px;
+  display: block;
+  width: 100%;
+  background: transparent;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=mcpvr.css.map */

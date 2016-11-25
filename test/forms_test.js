@@ -20,37 +20,49 @@
         throws(block, [expected], [message])
     */
 
-    QUnit.module("Columns", {
+    QUnit.module("Forms", {
 
         // This will run before each test in this module.
         beforeEach: function(assert) {
 
             this.root = $("#qunit-fixture");
             this.columns = 12;
+            makeFloatingLabels();
 
         }
     });
 
-    QUnit.test("are equal-height", function(assert) {
+    QUnit.test("has labels", function(assert) {
 
+        assert.ok(this.root.find("input").length == this.root.find("label").length);
+        this.root.find("label").each(function() {
+            var label = this;
+            var input = $("input[id=" + $(label).attr("for") + "]");
+            assert.equal($(input).attr("placeholder"), $(label).text());
+        });
 
-        var row = $("#qunit-fixture").find(".equal-height");
-
-        var h = $(row).css("height");
-        makeColumnsEqual();
-
-        assert.equal($(row.children()[0]).css("height"), h, $(this).text() + " should have height of " + h);
-
-
-
-        makeColumnsEqual('.not-equal-height');
-        var row = $("#qunit-fixture").find(".not-equal-height");
-
-
-        assert.notEqual($(row.children()[0]).css("height"), h, $(this).text() + " should not have height of " + h);
-        assert.equal($(row.children()[2]).css("height"), h, $(this).text() + " should again have height of " + h);
 
 
     });
+
+  /*  QUnit.test("makes labels active on typing", function(assert) {
+
+
+
+        this.root.find("label").each(function() {
+            var label = this;
+            console.log(label);
+            var input = $("input[id=" + $(label).attr("for") + "]");
+
+            input.val('test');
+            input.trigger('keyup');
+            console.log(input[0].value);
+
+            assert.ok($(label).hasClass('active'));
+        });
+
+
+
+    });*/
 
 })(QUnit, jQuery));

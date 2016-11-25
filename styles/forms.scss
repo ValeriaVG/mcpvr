@@ -1,0 +1,49 @@
+// Floating Label Form implementation
+
+.form {
+    label {
+        color: text("dark-hint");
+        font-size: $base-line/2;
+        line-height: $base-line;
+        padding-left: $base-vertical-line;
+        position: absolute;
+        display: inline;
+        text-overflow: ellipsis;
+        opacity: 1;
+        transition: 100ms ease-out;
+        transform: translateY(0);
+
+        &.active {
+            color: palette("light-blue","500");
+            transition: 100ms ease-out;
+        }
+
+        &.error {
+            color: palette("red","500");
+            transition: 100ms ease-out;
+        }
+
+        &.hidden {
+            transform: translateY($base-line);
+            opacity: 0;
+            transition: 100ms ease-out;
+        }
+    }
+
+    input {
+        &[type=email],
+        &[type=number],
+        &[type=password],
+        &[type=tel],
+        &[type=text] {
+            border: 0;
+            border-bottom: 1px solid text("dark-divider");
+            padding: $base-line $base-vertical-line ($base-line/2 + 2px);
+            display: block;
+            width: 100%;
+            background: transparent;
+            height: $base-line*2.5;
+            margin-bottom: $base-line*0.5;
+        }
+    }
+}
