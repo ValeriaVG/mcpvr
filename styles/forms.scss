@@ -125,3 +125,13 @@
     }
   }
 }
+.btn{
+  border:none;
+  color:palette($active,"500");
+  text-transform: uppercase;
+  background: transparent;
+  display:inline-block;
+  &:disabled{
+    color: text('dark-hint');
+  }
+}

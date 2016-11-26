@@ -6932,4 +6932,15 @@ table.table thead {
   z-index: 1;
 }
 
+.btn {
+  border: none;
+  color: #2196F3;
+  text-transform: uppercase;
+  background: transparent;
+  display: inline-block;
+}
+.btn:disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+
 /*# sourceMappingURL=mcpvr.css.map */
