@@ -8,6 +8,7 @@
         switch (action) {
             case 'ready':
                 /*Only when ready*/
+                makeFloatingLabels();
                 break;
             case 'resize':
                 /*Only when resized*/

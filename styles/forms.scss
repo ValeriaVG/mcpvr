@@ -5,7 +5,8 @@
         color: text("dark-hint");
         font-size: $base-line/2;
         line-height: $base-line;
-        padding-left: $base-vertical-line;
+        //padding-left: ceil($base-vertical-line/2);
+        //padding-right: floor($base-vertical-line/2);
         position: absolute;
         display: inline;
         text-overflow: ellipsis;
@@ -14,12 +15,17 @@
         transform: translateY(0);
 
         &.active {
-            color: palette("light-blue","500");
+            color: palette($active,"500");
             transition: 100ms ease-out;
         }
 
         &.error {
-            color: palette("red","500");
+            color: palette($error,"500");
+            transition: 100ms ease-out;
+        }
+
+        &.valid {
+            color: palette($valid,"500");
             transition: 100ms ease-out;
         }
 
@@ -30,20 +36,92 @@
         }
     }
 
+    input+label {
+        position: relative;
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+        height: $base-line;
+        width: $base-line;
+        padding: 0;
+        margin: 0;
+        vertical-align: bottom;
+        position: relative;
+        top: -1px;
+        overflow: hidden;
+    }
+
+    .input {
+        border: 0;
+        border-bottom: 1px solid text("dark-divider");
+        padding: $base-line ceil($base-vertical-line/2) ($base-line/2 + 2px) floor($base-vertical-line/2);
+        display: block;
+        width: 100%;
+        background: transparent;
+        height: $base-line*2.5;
+        margin-bottom: $base-line*0.5;
+        outline: none!important;
+
+        &:invalid {
+            border: 0;
+            border-bottom: 1px solid palette($error,"500");
+            outline: none;
+            box-shadow: none;
+        }
+
+        &.valid {
+            border: 0;
+            border-bottom: 1px solid palette($valid,"500");
+            outline: none;
+            box-shadow: none;
+        }
+
+        &:focus {
+            border-color: palette($active,"300");
+        }
+    }
+
     input {
         &[type=email],
         &[type=number],
         &[type=password],
         &[type=tel],
         &[type=text] {
-            border: 0;
-            border-bottom: 1px solid text("dark-divider");
-            padding: $base-line $base-vertical-line ($base-line/2 + 2px);
-            display: block;
-            width: 100%;
-            background: transparent;
-            height: $base-line*2.5;
-            margin-bottom: $base-line*0.5;
+            @extend .input;
         }
     }
+
+    textarea {
+        @extend .input;
+        height: $base-line*5.5;
+    }
+
+    select {
+        @extend .input;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &::-ms-expand {
+            /* for IE 11 */
+            display: none;
+        }
+        position: relative;
+        z-index:2;
+    }
+.select{
+    position:relative;
+
+    &:after{
+      position: absolute;
+      content: $fa-var-angle-down;
+      font-family: 'FontAwesome';
+      right:$base-vertical-line/4;
+      top:ceil($base-line);
+      color:text('dark-hint');
+      display: block;
+      z-index:1;
+    }
+  }
 }

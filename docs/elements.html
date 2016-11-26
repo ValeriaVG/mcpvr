@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <link href="./css/mcpvr.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
     <link href="favicon.ico" rel="shortcut icon">
+    <script src="js/mcpvr.js"></script>
     <meta name="viewport" content="initial-scale=1, width=device-width">
     <title>Elements - MCPVR</title>
 </head>
@@ -166,32 +166,69 @@
                     </div>
                     <h4 class="text-center">Reversed</h4>
                     <div class="row reversed">
-                      <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
-                      <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
-                      <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
-                      <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
-                      <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
-                      <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
-                      <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
-                      <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
-                      <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
-                      <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
+                        <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
+                        <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
+                        <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
+                        <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
+                        <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
+                        <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
+                        <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
+                        <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
+                        <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
+                        <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
                     </div>
 
                     <h4 class="text-center">Reversed only on phone</h4>
                     <div class="row phone-reversed">
-                      <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
-                      <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
-                      <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
-                      <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
-                      <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
-                      <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
-                      <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
-                      <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
-                      <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
-                      <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
+                        <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
+                        <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
+                        <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
+                        <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
+                        <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
+                        <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
+                        <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
+                        <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
+                        <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
+                        <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="container trailer">
+                <h2 id="forms">Forms</h2>
+                <p>Framework includes implementation of floating labels design pattern</p>
+            </div>
+            <div class="bg-blue-grey-50 double-padded light-secondary">
+                <h3 class="text-center dark-divider h4">Preview</h3>
+                <form class="form row">
+                    <div class="col tablet-3">
+                        <input type="text" placeholder="Enter some text" required>
+                    </div>
+                    <div class="col tablet-3">
+                        <input type="email" placeholder="Enter some email">
+                    </div>
+                    <div class="col tablet-3">
+                        <input type="number" placeholder="Enter some number">
+                    </div>
+                    <div class="col tablet-3">
+                        <input type="password" placeholder="Enter some password">
+                    </div>
+                    <div class="col tablet-6">
+                      <textarea placeholder="Textarea example"></textarea>
+                    </div>
+                    <div class="col tablet-3">
+                      <input type="checkbox"><label>Hello, I am a checkbox</label><br>
+                      <input type="checkbox"><label>Hello, I am another checkbox</label><br><br>
+                      <input type="radio" name="radio"><label>Hello, I am a radio</label><br> <input type="radio" name="radio"><label>Hello, I am a radio too</label>
+                    </div>
+
+                    <div class="col tablet-3">
+                      <div class="select">
+                      <label>Select something</label>
+                        <select><option>I'm a dropdown list</option></select>
+                      </div>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="col phone-landscape-3 desktop-2 ">

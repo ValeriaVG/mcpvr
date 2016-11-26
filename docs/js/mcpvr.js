@@ -1,3 +1,60 @@
+/*! MCPVR - v0.0.1 - 2016-11-26
+* https://valeriavg.github.io/mcpvr/
+* Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
+var dockTo=function(elementSelector,dockSelector){
+  var element=document.querySelector(elementSelector);
+  var dock=document.querySelector(dockSelector);
+};
+
+var makeColumnsEqual = function(selector) {
+
+    if (selector === undefined) {
+        selector = '.equal-height';
+    }
+    var items = document.querySelectorAll(selector);
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var top = item.offsetTop;
+        var columns = item.children;
+        var columnsAreInLine = false;
+
+        var row = {
+            'height': 0,
+            'columns': []
+        };
+        var rows = [];
+
+
+        for (var j = 0; j < columns.length; j++) {
+            columnsAreInLine = (columns[j].offsetTop === top);
+
+            if (!columnsAreInLine) {
+                rows.push(row);
+                top = columns[j].offsetTop;
+                row = {
+                    'height': 0,
+                    'columns': []
+                };
+            }
+            if (columns[j].clientHeight > row.height) {
+                row.height = columns[j].clientHeight;
+            }
+            row.columns.push(columns[j]);
+
+        }
+        if (columns.length > 0) {
+            rows.push(row);
+        }
+      
+        for (i = 0; i < rows.length; i++) {
+            for (j = 0; j < rows[i].columns.length; j++) {
+                rows[i].columns[j].style.height = rows[i].height + 'px';
+            }
+
+        }
+    }
+};
+
 var makeFloatingLabels = function(selector) {
     if (selector === undefined) {
         selector = '.form';
@@ -74,3 +131,39 @@ var makeFloatingLabels = function(selector) {
         }
     }
 };
+
+HTMLElement.prototype.clientStyle = function(pseudo){
+  if(pseudo===undefined){
+    pseudo=null;
+  }
+  return window.getComputedStyle(this, pseudo);
+};
+
+(function() {
+    'use strict';
+    window.mcpvr = function(action) {
+        /*Always*/
+        /*Adjust height of equal-height columns*/
+        makeColumnsEqual();
+
+        switch (action) {
+            case 'ready':
+                /*Only when ready*/
+                makeFloatingLabels();
+                break;
+            case 'resize':
+                /*Only when resized*/
+                break;
+            default:
+
+                break;
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function(event) {
+        mcpvr('ready');
+    });
+    window.addEventListener('resize', function(event) {
+        mcpvr('resize');
+    });
+}());

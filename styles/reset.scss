@@ -208,3 +208,8 @@ a img {
 :focus {
 	outline: 0;
 }
+textarea,pre,code{
+	font-family: inherit;
+	font-size: $base-font-size;
+
+}
