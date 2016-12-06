@@ -4,7 +4,7 @@
         /*Always*/
         /*Adjust height of equal-height columns*/
         makeColumnsEqual();
-
+        makeDropdownMenu();
         switch (action) {
             case 'ready':
                 /*Only when ready*/

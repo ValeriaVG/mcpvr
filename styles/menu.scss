@@ -1,12 +1,21 @@
 ul.menu {
-    list-style-type: none;
+    li {
+        list-style-type: none;
 
-    a {
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
+        &:not(.fa-li)::before {
+            content: "";
         }
+    }
+
+    a,
+    span {
+        text-decoration: none;
+        padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
+        display: block;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     li.active a {
@@ -54,23 +63,38 @@ ul.menu {
         }
     }
 
+    &.ug {
+        &,
+        a {
+            color: #CF8989;
+        }
+
+        a:hover,
+        li.active,
+        li.active > a {
+            color: #780303;
+        }
+    }
+
+    &.crumbs,
     &.horizontal {
         @include clearfix;
         margin-left: - ceil($base-vertical-line/2);
         margin-right: - floor($base-vertical-line/2);
 
-        &>li {
+        & > li {
             float: left;
             padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
         }
     }
 
     &.decorated {
-        &>li {
+        & > li {
             position: relative;
             padding: 0;
 
-            & > a {
+            & > a,
+            & > span {
                 display: block;
                 text-decoration: none;
                 padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
@@ -78,53 +102,56 @@ ul.menu {
             }
         }
 
-        &>li:after {
-                content: "";
-                height: 100%;
-                position: absolute;
-                right: 0;
-                top:0;
-                width: 3px;
-                display: block;
-                transform: scaleY(0.01);
-                transition:transform 300ms;
-            }
+        & > li:after {
+            content: "";
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 3px;
+            display: block;
+            transform: scaleY(0.01);
+            transition: transform 300ms;
+        }
 
-        &>li.active,
-        &>li:hover {
+        &.left > li:after {
+            right: auto;
+            left: 0;
+        }
+
+        & > li.active,
+        & > li:hover {
             &:after {
-              transform: scaleY(1);
-              transition: transform 500ms;
+                transform: scaleY(1);
+                transition: transform 500ms;
             }
         }
 
         &.text-left {
-            &>li.active,
-            &>li:hover {
+            & > li.active,
+            & > li:hover {
                 &:after {
                     right: auto;
                     left: 0;
-
                 }
             }
         }
 
         &.horizontal {
+            & > li:after {
+                content: "";
+                left: 0;
+                right: 0;
+                top: auto;
+                height: 3px;
+                bottom: 0;
+                width: 100%;
+                transform: scaleX(0.01);
+                transition: transform 300ms;
+            }
 
-              &>li:after {
-                content:"";
-                  left: 0;
-                  right: 0;
-                  top:auto;
-                  height: 3px;
-                  bottom: 0;
-                  width: 100%;
-                  transform: scaleX(0.01);
-                  transition: transform 300ms;
-              }
-
-            &>li.active,
-            &>li:hover {
+            & > li.active,
+            & > li:hover {
                 &:after {
                     transform: scaleX(1);
                     transition: transform 500ms;
@@ -134,8 +161,8 @@ ul.menu {
 
         &,
         &.dark {
-            &>li.active,
-            &>li:hover {
+            & > li.active,
+            & > li:hover {
                 &:after {
                     background-color: text('dark-secondary');
                 }
@@ -143,8 +170,8 @@ ul.menu {
         }
 
         &.light {
-            &>li.active,
-            &>li:hover {
+            & > li.active,
+            & > li:hover {
                 &:after {
                     background-color: text('light-secondary');
                 }
@@ -152,13 +179,73 @@ ul.menu {
         }
         @each $name,$color in $palette {
             &.#{$name} {
-                &>li.active,
-                &>li:hover {
+                & > li.active,
+                & > li:hover {
                     &:after {
                         background-color: map-get($color,"500");
                     }
                 }
             }
+        }
+    }
+
+    &.crumbs {
+      a,span{
+        padding:0;
+      }
+        li+li {
+            position: relative;
+
+            &:before {
+                content: $fa-var-angle-right;
+                font-family: "FontAwesome";
+                position: absolute;
+                left: 0;
+                top: $base-line/2;
+            }
+        }
+    }
+
+    & > li.dropdown {
+        position: relative;
+        padding-right: $base-vertical-line/2;
+
+        & > a:after {
+            content: $fa-var-angle-down;
+            font-family: "FontAwesome";
+            position: absolute;
+            right: 0;
+            top: $base-line/2;
+        }
+
+        & > ul {
+            position: fixed;
+            z-index: 2;
+
+            z-index: 3;
+            transition:500ms;
+            transform: scaleY(0.001);
+            opacity:0;
+            background: text('dark-primary');
+            border: 1px solid text('light-divider');
+            border-top: none;
+
+            li {
+                padding-left: 0;
+            }
+
+            &.shown {
+              opacity: 1;
+                transition:500ms;
+                transform: scaleY(1);
+            }
+        }
+    }
+
+    &.dark > li.dropdown {
+        & > ul {
+            background: text('light-primary');
+            border: 1px solid text('dark-divider');
         }
     }
 }

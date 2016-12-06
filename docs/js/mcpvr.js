@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2016-11-26
+/*! MCPVR - v0.0.1 - 2016-12-06
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var dockTo=function(elementSelector,dockSelector){
@@ -52,6 +52,41 @@ var makeColumnsEqual = function(selector) {
             }
 
         }
+    }
+};
+
+var showDropdownMenu = function(event) {
+  var menu = this.querySelector(':scope > UL');
+  menu.style.minWidth=this.clientStyle().width;
+  menu.setAttribute('class','shown');
+};
+var hideDropdownMenu = function(event) {
+  var menu = this.querySelector(':scope > UL');
+  menu.setAttribute('class','');
+};
+
+var makeDropdownMenu = function(selector) {
+    if (selector === undefined) {
+        selector = '.dropdown';
+    }
+    var triggers = document.querySelectorAll(selector);
+    for (var i = 0; i < triggers.length; i++) {
+        var trigger = triggers[i];
+        var show = 'mouseover';
+        var hide = 'mouseleave';
+        if (window.ontouchstart !== undefined) {
+            show = 'click';
+            hide = 'click';
+        }
+        trigger.removeEventListener('click',showDropdownMenu);
+        trigger.removeEventListener('mouseover',showDropdownMenu);
+        trigger.removeEventListener('click',hideDropdownMenu);
+        trigger.removeEventListener('mouseout',hideDropdownMenu);
+
+
+        trigger.addEventListener(show, showDropdownMenu);
+        trigger.addEventListener(hide, hideDropdownMenu);
+
     }
 };
 
@@ -145,7 +180,7 @@ HTMLElement.prototype.clientStyle = function(pseudo){
         /*Always*/
         /*Adjust height of equal-height columns*/
         makeColumnsEqual();
-
+        makeDropdownMenu();
         switch (action) {
             case 'ready':
                 /*Only when ready*/

@@ -12,6 +12,7 @@
 
 @import 'variables/typography.scss';
 @import 'mixins/adjust-size.scss';
+@import 'icons/font-awesome.scss';
 @import 'typography.scss';
 @import 'reset.scss';
 
@@ -24,7 +25,10 @@
 
 @import 'menu.scss';
 @import 'tables.scss';
-@import 'icons/font-awesome.scss';
+
 
 @import 'variables/forms.scss';
 @import 'forms.scss';
+
+@import 'components/alerts.scss';
+@import 'components/jgrowl.scss';
