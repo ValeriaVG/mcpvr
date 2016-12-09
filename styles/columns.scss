@@ -19,6 +19,8 @@ $gutter: $base-vertical-line/2;
             float: right;
         }
     }
+
+
     $previous: 0;
     @each $device,$width in $devices {
          @include media-more-than($width){

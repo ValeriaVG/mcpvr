@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2016-12-06
+/*! MCPVR - v0.0.1 - 2016-12-10
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var dockTo=function(elementSelector,dockSelector){
@@ -58,7 +58,10 @@ var makeColumnsEqual = function(selector) {
 var showDropdownMenu = function(event) {
   var menu = this.querySelector(':scope > UL');
   menu.style.minWidth=this.clientStyle().width;
-  menu.setAttribute('class','shown');
+
+
+
+    menu.setAttribute('class','shown');
 };
 var hideDropdownMenu = function(event) {
   var menu = this.querySelector(':scope > UL');
@@ -78,6 +81,12 @@ var makeDropdownMenu = function(selector) {
             show = 'click';
             hide = 'click';
         }
+        var menu = triggers[i].querySelector(':scope > UL');
+        if(!menu.classList.contains('horizontal')){
+          menu.style.marginLeft=triggers[i].clientStyle().width;
+          menu.style.top=triggers[i].offsetTop+"px";
+        }
+
         trigger.removeEventListener('click',showDropdownMenu);
         trigger.removeEventListener('mouseover',showDropdownMenu);
         trigger.removeEventListener('click',hideDropdownMenu);
@@ -172,6 +181,11 @@ HTMLElement.prototype.clientStyle = function(pseudo){
     pseudo=null;
   }
   return window.getComputedStyle(this, pseudo);
+};
+
+HTMLElement.prototype.hasClass = function(className){
+
+  return this.getAttribute("class").test('/\b'+className+'\b/gi');
 };
 
 (function() {

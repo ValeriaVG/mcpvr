@@ -113,20 +113,18 @@ pre {
 	margin-bottom: $base-line;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@extend .header;
+h1,.h1{
+	@include adjust-font-size($base-font-size*3);
+
+	display: block;
+	font-weight: normal;
 }
 $previous-font-size: $base-font-size;
-@for $i from 6 through 1 {
+@for $i from 6 through 2 {
 	.h#{$i},
 	h#{$i} {
-		@include adjust-font-size($ratio*$previous-font-size);
-		$previous-font-size: $ratio*$previous-font-size;
+		@include adjust-font-size($previous-font-size+3px);
+		$previous-font-size: 3px+$previous-font-size;
 		display: block;
 		font-weight: normal;
 	}

@@ -22,8 +22,22 @@ ul.menu {
         text-decoration: underline;
     }
 
-    &,
+    &:not(.crumbs),
     &.dark {
+        &,
+        a {
+            color: text('dark-primary');
+        }
+
+        a:hover,
+        li.active,
+        li.active > a {
+          background: text('dark-divider');
+        }
+    }
+
+    &.crumbs,
+    &.inverted{
         &,
         a {
             color: text('dark-secondary');
@@ -32,20 +46,20 @@ ul.menu {
         a:hover,
         li.active,
         li.active > a {
-            color: text('dark-primary');
+          color: text('dark-primary');
         }
     }
 
     &.light {
         &,
         a {
-            color: text('light-secondary');
+            color: text('light-primary');
         }
 
         a:hover,
         li.active,
         li.active > a {
-            color: text('light-primary');
+            background: text('light-divider');
         }
     }
     @each $name,$color in $palette {
@@ -86,6 +100,48 @@ ul.menu {
             float: left;
             padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
         }
+
+        &.divided {
+            li+li {
+                border-left: 1px solid text('dark-divider');
+            }
+
+            &.light li+li {
+                border-left: 1px solid text('light-divider');
+            }
+        }
+    }
+    &:not(.horizontal){
+      li.dropdown{
+        &>a,&>span{
+          position: relative;
+          padding-right:$base-line;
+          margin-right:-$base-line*0.5;
+          &:after{
+            content:$fa-var-angle-right;
+            right:$base-line*0.5;
+            font-size:$base-line;
+            top:50%;
+          margin-top: -$base-line*0.5;
+          }
+        }
+        &>ul{
+          transform:scaleX(0.01);
+          &.shown{
+            transform:scaleX(1);
+          }
+        }
+
+      }
+      &.divided {
+           li+li {
+              border-top: 1px solid text('dark-divider');
+          }
+
+          &.light  li+li {
+              border-top: 1px solid text('light-divider');
+          }
+      }
     }
 
     &.decorated {
@@ -138,6 +194,12 @@ ul.menu {
         }
 
         &.horizontal {
+            &.centered {
+                display: inline-flex;
+                align-items: center;
+                white-space: nowrap;
+            }
+
             & > li:after {
                 content: "";
                 left: 0;
@@ -190,9 +252,11 @@ ul.menu {
     }
 
     &.crumbs {
-      a,span{
-        padding:0;
-      }
+        a,
+        span {
+            padding: 0;
+        }
+
         li+li {
             position: relative;
 
@@ -221,22 +285,24 @@ ul.menu {
         & > ul {
             position: fixed;
             z-index: 2;
-
             z-index: 3;
-            transition:500ms;
+            transition: 500ms;
             transform: scaleY(0.001);
-            opacity:0;
+            opacity: 0;
             background: text('dark-primary');
             border: 1px solid text('light-divider');
             border-top: none;
 
             li {
                 padding-left: 0;
+                a{
+                  transition: none;
+                }
             }
 
             &.shown {
-              opacity: 1;
-                transition:500ms;
+                opacity: 1;
+                transition: 500ms;
                 transform: scaleY(1);
             }
         }

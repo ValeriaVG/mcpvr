@@ -1,3 +1,4 @@
+body{
 @each $name,$color in $palette {
     .#{$name} {
         color: map-get($color,"500");
@@ -9,6 +10,28 @@
             background-color: map-get($color,"500");
         }
     }
+    .btn.#{$name} {
+        background: map-get($color,"500");
+        color:text('light-primary');
+        transition: 300ms;
+        &:hover{
+          background: map-get($color,"A700");
+          transition: 500ms;
+        }
+    }
+    .btn.i-#{$name} {
+        border:2px solid  map-get($color,"400");
+        color:map-get($color,"500");
+        transition: 300ms;
+        background: tranparent;
+        line-height: ($base-line*2 - 4px);
+        &:hover{
+          border-color: map-get($color,"A400");
+          color: map-get($color,"A700");
+          background: map-get($color,"50");
+          transition: 500ms;
+        }
+    }
     @each $tone,$value in $color {
         .#{$name}-#{$tone} {
             color: $value;
@@ -17,13 +40,16 @@
         .bg-#{$name}-#{$tone} {
             background-color: $value;
         }
+
     }
 }
 @each $name,$value in $opaque-text {
   .bg-#{$name} {
       background: $value;
   }
+
     .#{$name} {
         color: $value;
     }
+}
 }

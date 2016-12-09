@@ -6,6 +6,11 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+      @include media-more-than($base-vertical-line*2 + 980px) {
+        &.condensed {
+            width: 980px;
+        }
+    }
     @include media-more-than($base-vertical-line*30) {
         &.text {
             width: $base-vertical-line*28;

@@ -3,7 +3,7 @@
 
 @import 'variables/palette.scss';
 @import 'mixins/colors.scss';
-@import 'mixins/color-classes.scss';
+
 
 @import 'variables/devices.scss';
 @import 'mixins/devices.scss';
@@ -11,6 +11,7 @@
 
 
 @import 'variables/typography.scss';
+@import 'mixins/color-classes.scss';
 @import 'mixins/adjust-size.scss';
 @import 'icons/font-awesome.scss';
 @import 'typography.scss';

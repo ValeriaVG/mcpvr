@@ -28,6 +28,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .text-left {
     text-align: left;
 }
@@ -35,6 +36,7 @@
 .text-center {
     text-align: center;
 }
+
 .text-right {
     text-align: right;
 }
@@ -75,6 +77,11 @@ body .bold {
     font-weight: bold;
 }
 
+.big {
+    font-size: $base-line;
+    line-height: $base-line;
+}
+
 .btn {
     display: inline-block;
     border: none;
@@ -92,9 +99,10 @@ body .bold {
 
     &.big {
         padding: $base-line;
-        @include adjust-font-size($base-font-size*2);
         border-radius: $base-radius*2;
     }
+
+
 }
 
 .divider,
@@ -104,7 +112,19 @@ hr {
     border-bottom: 1px solid text("dark-divider");
 }
 
-.header {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.header,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $header-font;
     color: $header-color;
 }
@@ -112,6 +132,8 @@ hr {
 mark {
     background-color: palette($primary-color,'50');
 }
-.col,table{
-  word-break: break-all;
+
+
+table {
+    word-break: break-all;
 }
