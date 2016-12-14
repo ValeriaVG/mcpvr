@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2016-12-10
+/*! MCPVR - v0.0.1 - 2016-12-14
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var dockTo=function(elementSelector,dockSelector){

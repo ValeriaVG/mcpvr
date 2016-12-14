@@ -6377,6 +6377,30 @@ textarea, pre, code {
   background-position: left top;
 }
 
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.clearfix:after {
+  width: 100%;
+  height: 0px;
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.relative {
+  position: relative;
+}
+
 ul.menu li {
   list-style-type: none;
 }
@@ -6584,15 +6608,6 @@ ul.menu.blue-grey,
 ul.menu.blue-grey a {
   color: #78909C;
 }
-ul.menu.ug,
-ul.menu.ug a {
-  color: #CF8989;
-}
-ul.menu.ug a:hover,
-ul.menu.ug li.active,
-ul.menu.ug li.active > a {
-  color: #780303;
-}
 ul.menu.crumbs, ul.menu.horizontal {
   margin-left: -10px;
   margin-right: -10px;
@@ -6767,19 +6782,20 @@ ul.menu.crumbs li + li:before {
   left: 0;
   top: 10px;
 }
-ul.menu > li.dropdown {
+ul.menu li.dropdown {
   position: relative;
   padding-right: 10px;
 }
-ul.menu > li.dropdown > a:after {
+ul.menu li.dropdown > a:after {
   content: "";
   font-family: "FontAwesome";
   position: absolute;
   right: 0;
   top: 10px;
 }
-ul.menu > li.dropdown > ul {
-  position: fixed;
+ul.menu li.dropdown > ul {
+  top: 0;
+  position: absolute;
   z-index: 2;
   z-index: 3;
   transition: 500ms;
@@ -6789,18 +6805,18 @@ ul.menu > li.dropdown > ul {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-top: none;
 }
-ul.menu > li.dropdown > ul li {
+ul.menu li.dropdown > ul li {
   padding-left: 0;
 }
-ul.menu > li.dropdown > ul li a {
+ul.menu li.dropdown > ul li a {
   transition: none;
 }
-ul.menu > li.dropdown > ul.shown {
+ul.menu li.dropdown > ul.shown {
   opacity: 1;
   transition: 500ms;
   transform: scaleY(1);
 }
-ul.menu.dark > li.dropdown > ul {
+ul.menu.dark li.dropdown > ul {
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
@@ -6825,6 +6841,9 @@ table.table thead {
   opacity: 1;
   transition: 100ms ease-out;
   transform: translateY(0);
+  overflow: hidden;
+  white-space: nowrap;
+  width: 90%;
 }
 .form label.active {
   color: #03A9F4;
@@ -6920,6 +6939,38 @@ table.table thead {
 }
 .btn:disabled {
   color: rgba(0, 0, 0, 0.38);
+}
+
+.modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  background: rgba(0, 0, 0, 0.87);
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  transition: 300ms ease-out;
+  opacity: 0;
+  display: block;
+  overflow: auto;
+}
+.modal.shown {
+  transition: 500ms ease-in;
+  top: 0;
+  opacity: 1;
+}
+.modal .body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+}
+
+body.modal-opened {
+  overflow: hidden;
+  padding-right: 16px;
 }
 
 #customAlert-overlay,
