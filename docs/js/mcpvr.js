@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2016-12-14
+/*! MCPVR - v0.0.1 - 2016-12-27
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var dockTo=function(elementSelector,dockSelector){
@@ -58,7 +58,7 @@ var makeColumnsEqual = function(selector) {
 var showDropdownMenu = function(event) {
   var menu = this.querySelector(':scope > UL');
   menu.style.minWidth=this.clientStyle().width;
-
+menu.style.left=this.parentElement.clientStyle().width;
 
 
     menu.setAttribute('class','shown');
@@ -83,8 +83,8 @@ var makeDropdownMenu = function(selector) {
         }
         var menu = triggers[i].querySelector(':scope > UL');
         if(!menu.classList.contains('horizontal')){
-          menu.style.marginLeft=triggers[i].clientStyle().width;
-          menu.style.top=triggers[i].offsetTop+"px";
+
+          //menu.style.top=(triggers[i].offsetTop-1-triggers[i].parentElement.offsetTop)+"px";
         }
 
         trigger.removeEventListener('click',showDropdownMenu);
@@ -173,6 +173,53 @@ var makeFloatingLabels = function(selector) {
             input.addEventListener('blur', adjustLabels);
             input.addEventListener('paste', adjustLabels);
         }
+    }
+};
+
+var showModal = function(modal) {
+    document.body.setAttribute("class", "modal-opened");
+    modal.setAttribute('class', 'modal shown');
+};
+var hideModal = function(modal) {
+    document.body.setAttribute("class", "");
+    modal.setAttribute('class', 'modal');
+};
+
+var makeModals = function(selector) {
+    if (selector === undefined) {
+        selector = '[data-modal]';
+    }
+    var triggers = document.querySelectorAll(selector);
+    for (var i = 0; i < triggers.length; i++) {
+        var trigger = triggers[i];
+        var modalSelector = trigger.getAttribute('data-modal');
+        if (modalSelector.length === 0) {
+            modalSelector = trigger.getAttribute('href');
+        }
+        var modal = document.querySelector(modalSelector);
+        var closers = modal.querySelectorAll(".close");
+        for (var j = 0; j < closers.length; j++) {
+            closers[j].addEventListener('click', function(event) {
+                hideModal(modal);
+            });
+        }
+        trigger.addEventListener('click', function(event) {
+            event.preventDefault();
+            showModal(modal);
+        });
+
+        modal.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                hideModal(modal);
+            }
+        });
+
+    }
+
+    if(document.location.hash.length>0){
+      if(document.querySelector(document.location.hash).hasClass("modal")){
+        showModal(document.querySelector(document.location.hash));
+      }
     }
 };
 
