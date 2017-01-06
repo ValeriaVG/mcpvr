@@ -1,4 +1,4 @@
 HTMLElement.prototype.hasClass = function(className){
 
-  return this.getAttribute("class").test('/\b'+className+'\b/gi');
+  return this.getAttribute("class").indexOf(className)!==-1;
 };
