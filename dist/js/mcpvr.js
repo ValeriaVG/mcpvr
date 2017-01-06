@@ -1,11 +1,6 @@
-/*! MCPVR - v0.0.1 - 2016-12-14
+/*! MCPVR - v0.0.1 - 2017-01-06
 * https://valeriavg.github.io/mcpvr/
-* Copyright (c) 2016 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
-var dockTo=function(elementSelector,dockSelector){
-  var element=document.querySelector(elementSelector);
-  var dock=document.querySelector(dockSelector);
-};
-
+* Copyright (c) 2017 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var makeColumnsEqual = function(selector) {
 
     if (selector === undefined) {
@@ -176,6 +171,68 @@ var makeFloatingLabels = function(selector) {
     }
 };
 
+var showModal = function(modal) {
+
+    document.body.setAttribute("class", "modal-opened");
+    document.querySelector(modal).setAttribute('class', 'modal shown');
+};
+var hideModal = function(modal) {
+    document.body.setAttribute("class", "");
+    document.querySelector(modal).setAttribute('class', 'modal');
+};
+var showAttachedModal=function(event){
+  var trigger=this;
+  var modalSelector = trigger.getAttribute('data-modal');
+  if (modalSelector.length === 0) {
+      modalSelector = trigger.getAttribute('href');
+  }
+  showModal(modalSelector);
+};
+var hideAttachedModal=function(event){
+  var trigger=this;
+  var modalSelector = trigger.getAttribute('data-modal');
+  if (modalSelector.length === 0) {
+      modalSelector = trigger.getAttribute('href');
+  }
+  hideModal(modalSelector);
+};
+
+var makeModals = function(selector) {
+    if (selector === undefined) {
+        selector = '[data-modal]';
+    }
+    var triggers = document.querySelectorAll(selector);
+    for (var i = 0; i < triggers.length; i++) {
+        var trigger = triggers[i];
+        var modalSelector = trigger.getAttribute('data-modal');
+        if (modalSelector.length === 0) {
+            modalSelector = trigger.getAttribute('href');
+        }
+
+        var modal = document.querySelector(modalSelector);
+
+        if(modal!==null){
+
+
+        var closers = modal.querySelectorAll(".close");
+        for (var j = 0; j < closers.length; j++) {
+            closers[j].addEventListener('click', hideAttachedModal);
+        }
+        trigger.addEventListener('click', showAttachedModal);
+
+
+
+      }
+
+    }
+
+    if(document.location.hash.length>0){
+      if(document.querySelector(document.location.hash).hasClass("modal")){
+        showModal(document.querySelector(document.location.hash));
+      }
+    }
+};
+
 HTMLElement.prototype.clientStyle = function(pseudo){
   if(pseudo===undefined){
     pseudo=null;
@@ -195,6 +252,7 @@ HTMLElement.prototype.hasClass = function(className){
         /*Adjust height of equal-height columns*/
         makeColumnsEqual();
         makeDropdownMenu();
+        makeModals();
         switch (action) {
             case 'ready':
                 /*Only when ready*/

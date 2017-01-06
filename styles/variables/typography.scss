@@ -3,11 +3,11 @@ $base-vertical-line:$base-line;
 $base-font-size:15px;
 $base-radius:10px;//Basic border-radius
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|PT+Sans+Narrow:400,600&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Neucha&subset=cyrillic");
 $base-font:'Open Sans', sans-serif;
-$header-font:"PT Sans Narrow", sans-serif;
-$primary-color:'indigo';
+$header-font:"Neucha", sans-serif;
+$primary-color:'grey';
 $header-color:text("dark-secondary");
-$link-color:'indigo';
+$link-color:'blue-grey';
 $li-char:'\2022';
 $li-char-color:text('dark-hint');
