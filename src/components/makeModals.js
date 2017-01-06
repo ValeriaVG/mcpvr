@@ -9,7 +9,7 @@ var hideModal = function(modal) {
 };
 
 var showAttachedModal = function(event) {
-  event.preventDefault();
+    event.preventDefault();
     var trigger = this;
     var modalSelector = trigger.getAttribute('data-modal');
     if (modalSelector.length === 0) {
@@ -19,13 +19,17 @@ var showAttachedModal = function(event) {
 };
 
 var hideAttachedModal = function(event) {
-  event.preventDefault();
-    var trigger = this;
-    var modalSelector = trigger.getAttribute('data-modal');
-    if (modalSelector.length === 0) {
+
+    event.preventDefault();
+    var trigger = event.target;
+    var modalSelector=null;
+    modalSelector = trigger.getAttribute('data-modal');
+    if (modalSelector === null) {
         modalSelector = trigger.getAttribute('href');
     }
-    hideModal(modalSelector);
+    if (modalSelector !== null) {
+        hideModal(modalSelector);
+    }
 };
 
 var makeModals = function(selector) {
@@ -57,7 +61,7 @@ var makeModals = function(selector) {
     var modals = document.querySelectorAll('.modal');
     for (i = 0; i < modals.length; i++) {
         var closers = modals[i].querySelectorAll(".close");
-        var mselector='#'+modals[i].getAttribute('id');
+        var mselector = '#' + modals[i].getAttribute('id');
 
         for (var j = 0; j < closers.length; j++) {
             closers[j].setAttribute('data-modal', mselector);
@@ -65,6 +69,7 @@ var makeModals = function(selector) {
         }
         modals[i].setAttribute('data-modal', mselector);
         modals[i].addEventListener('click', hideAttachedModal);
+
     }
 
     if (document.location.hash.length > 0) {
