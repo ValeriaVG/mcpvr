@@ -53,7 +53,7 @@ var makeColumnsEqual = function(selector) {
 var showDropdownMenu = function(event) {
   var menu = this.querySelector(':scope > UL');
   menu.style.minWidth=this.clientStyle().width;
-
+menu.style.left=this.parentElement.clientStyle().width;
 
 
     menu.setAttribute('class','shown');
@@ -78,8 +78,8 @@ var makeDropdownMenu = function(selector) {
         }
         var menu = triggers[i].querySelector(':scope > UL');
         if(!menu.classList.contains('horizontal')){
-          menu.style.marginLeft=triggers[i].clientStyle().width;
-          menu.style.top=triggers[i].offsetTop+"px";
+
+          //menu.style.top=(triggers[i].offsetTop-1-triggers[i].parentElement.offsetTop)+"px";
         }
 
         trigger.removeEventListener('click',showDropdownMenu);
@@ -171,6 +171,7 @@ var makeFloatingLabels = function(selector) {
     }
 };
 
+
 var showModal = function(modal) {
 
     document.body.setAttribute("class", "modal-opened");
@@ -180,21 +181,21 @@ var hideModal = function(modal) {
     document.body.setAttribute("class", "");
     document.querySelector(modal).setAttribute('class', 'modal');
 };
-var showAttachedModal=function(event){
-  var trigger=this;
-  var modalSelector = trigger.getAttribute('data-modal');
-  if (modalSelector.length === 0) {
-      modalSelector = trigger.getAttribute('href');
-  }
-  showModal(modalSelector);
+var showAttachedModal = function(event) {
+    var trigger = this;
+    var modalSelector = trigger.getAttribute('data-modal');
+    if (modalSelector.length === 0) {
+        modalSelector = trigger.getAttribute('href');
+    }
+    showModal(modalSelector);
 };
-var hideAttachedModal=function(event){
-  var trigger=this;
-  var modalSelector = trigger.getAttribute('data-modal');
-  if (modalSelector.length === 0) {
-      modalSelector = trigger.getAttribute('href');
-  }
-  hideModal(modalSelector);
+var hideAttachedModal = function(event) {
+    var trigger = this;
+    var modalSelector = trigger.getAttribute('data-modal');
+    if (modalSelector.length === 0) {
+        modalSelector = trigger.getAttribute('href');
+    }
+    hideModal(modalSelector);
 };
 
 var makeModals = function(selector) {
@@ -211,25 +212,26 @@ var makeModals = function(selector) {
 
         var modal = document.querySelector(modalSelector);
 
-        if(modal!==null){
+        if (modal !== null) {
 
 
-        var closers = modal.querySelectorAll(".close");
-        for (var j = 0; j < closers.length; j++) {
-            closers[j].addEventListener('click', hideAttachedModal);
+            var closers = modal.querySelectorAll(".close");
+            for (var j = 0; j < closers.length; j++) {
+                closers[j].addEventListener('click', hideAttachedModal);
+            }
+            trigger.addEventListener('click', showAttachedModal);
+
+
+
         }
-        trigger.addEventListener('click', showAttachedModal);
-
-
-
-      }
 
     }
 
-    if(document.location.hash.length>0){
-      if(document.querySelector(document.location.hash).hasClass("modal")){
-        showModal(document.querySelector(document.location.hash));
-      }
+    if (document.location.hash.length > 0) {
+        if (document.querySelector(document.location.hash).hasClass("modal")) {
+            showModal(document.location.hash);
+        }
+
     }
 };
 

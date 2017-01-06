@@ -1,7 +1,7 @@
 var showDropdownMenu = function(event) {
   var menu = this.querySelector(':scope > UL');
   menu.style.minWidth=this.clientStyle().width;
-
+menu.style.left=this.parentElement.clientStyle().width;
 
 
     menu.setAttribute('class','shown');
@@ -26,8 +26,8 @@ var makeDropdownMenu = function(selector) {
         }
         var menu = triggers[i].querySelector(':scope > UL');
         if(!menu.classList.contains('horizontal')){
-          menu.style.marginLeft=triggers[i].clientStyle().width;
-          menu.style.top=triggers[i].offsetTop+"px";
+
+          //menu.style.top=(triggers[i].offsetTop-1-triggers[i].parentElement.offsetTop)+"px";
         }
 
         trigger.removeEventListener('click',showDropdownMenu);

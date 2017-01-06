@@ -1,3 +1,4 @@
+
 var showModal = function(modal) {
 
     document.body.setAttribute("class", "modal-opened");
@@ -55,7 +56,8 @@ var makeModals = function(selector) {
 
     if (document.location.hash.length > 0) {
         if (document.querySelector(document.location.hash).hasClass("modal")) {
-            showModal(document.querySelector(document.location.hash));
+            showModal(document.location.hash);
         }
+
     }
 };
