@@ -6844,6 +6844,7 @@ table.table thead {
   overflow: hidden;
   white-space: nowrap;
   width: 90%;
+  z-index: 1;
 }
 .form label.active {
   color: #03A9F4;
@@ -6886,6 +6887,8 @@ table.table thead {
   height: 50px;
   margin-bottom: 10px;
   outline: none !important;
+  position: relative;
+  z-index: 2;
 }
 .form .input:invalid, .form input[type=email]:invalid, .form input[type=number]:invalid, .form input[type=password]:invalid, .form input[type=tel]:invalid, .form input[type=text]:invalid, .form textarea:invalid, .form select:invalid {
   border: 0;

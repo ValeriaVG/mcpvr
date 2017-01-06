@@ -16,6 +16,7 @@
         overflow: hidden;
 white-space: nowrap;
 width: 90%;
+z-index:1;
 
         &.active {
             color: palette($active,"500");
@@ -65,6 +66,8 @@ width: 90%;
         height: $base-line*2.5;
         margin-bottom: $base-line*0.5;
         outline: none!important;
+        position: relative;
+        z-index: 2;
 
         &:invalid {
             border: 0;

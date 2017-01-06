@@ -193,14 +193,15 @@ var showAttachedModal = function(event) {
 
 var hideAttachedModal = function(event) {
 
-    event.preventDefault();
+
     var trigger = event.target;
     var modalSelector=null;
     modalSelector = trigger.getAttribute('data-modal');
     if (modalSelector === null) {
         modalSelector = trigger.getAttribute('href');
     }
-    if (modalSelector !== null) {
+    if (document.querySelector(modalSelector) !== null) {
+        event.preventDefault();
         hideModal(modalSelector);
     }
 };
