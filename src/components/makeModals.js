@@ -9,6 +9,7 @@ var hideModal = function(modal) {
 };
 
 var showAttachedModal = function(event) {
+  event.preventDefault();
     var trigger = this;
     var modalSelector = trigger.getAttribute('data-modal');
     if (modalSelector.length === 0) {
@@ -18,6 +19,7 @@ var showAttachedModal = function(event) {
 };
 
 var hideAttachedModal = function(event) {
+  event.preventDefault();
     var trigger = this;
     var modalSelector = trigger.getAttribute('data-modal');
     if (modalSelector.length === 0) {
