@@ -42,10 +42,11 @@ var makeColumnsEqual = function(selector) {
         if (columns.length > 0) {
             rows.push(row);
         }
-      
-        for (i = 0; i < rows.length; i++) {
-            for (j = 0; j < rows[i].columns.length; j++) {
-                rows[i].columns[j].style.height = rows[i].height + 'px';
+        for (var k = 0; k < rows.length; k++) {
+          var cols=rows[k].columns;
+          var h=rows[k].height;
+            for (var l = 0; l < cols.length; l++) {
+                cols[l].style.height = h + 'px';
             }
 
         }

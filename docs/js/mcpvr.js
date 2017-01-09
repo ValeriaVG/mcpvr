@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2017-01-06
+/*! MCPVR - v0.0.1 - 2017-01-09
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2017 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var makeColumnsEqual = function(selector) {
@@ -40,10 +40,11 @@ var makeColumnsEqual = function(selector) {
         if (columns.length > 0) {
             rows.push(row);
         }
-      
-        for (i = 0; i < rows.length; i++) {
-            for (j = 0; j < rows[i].columns.length; j++) {
-                rows[i].columns[j].style.height = rows[i].height + 'px';
+        for (var k = 0; k < rows.length; k++) {
+          var cols=rows[k].columns;
+          var h=rows[k].height;
+            for (var l = 0; l < cols.length; l++) {
+                cols[l].style.height = h + 'px';
             }
 
         }
