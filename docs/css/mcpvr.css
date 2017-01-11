@@ -6424,16 +6424,16 @@ ul.menu a:hover {
 ul.menu li.active a {
   text-decoration: underline;
 }
-ul.menu:not(.crumbs),
-ul.menu:not(.crumbs) a, ul.menu.dark,
-ul.menu.dark a {
+ul.menu.dark,
+ul.menu.dark a, ul.menu:not(.crumbs),
+ul.menu:not(.crumbs) a {
   color: rgba(0, 0, 0, 0.87);
 }
-ul.menu:not(.crumbs) a:hover,
-ul.menu:not(.crumbs) li.active,
-ul.menu:not(.crumbs) li.active > a, ul.menu.dark a:hover,
+ul.menu.dark a:hover,
 ul.menu.dark li.active,
-ul.menu.dark li.active > a {
+ul.menu.dark li.active > a, ul.menu:not(.crumbs) a:hover,
+ul.menu:not(.crumbs) li.active,
+ul.menu:not(.crumbs) li.active > a {
   background: rgba(0, 0, 0, 0.12);
 }
 ul.menu.crumbs,
@@ -6616,6 +6616,7 @@ ul.menu.blue-grey a {
 ul.menu.crumbs, ul.menu.horizontal {
   margin-left: -10px;
   margin-right: -10px;
+  padding: 0 10px;
 }
 ul.menu.crumbs:after, ul.menu.horizontal:after {
   width: 100%;
@@ -6627,6 +6628,12 @@ ul.menu.crumbs:after, ul.menu.horizontal:after {
 ul.menu.crumbs > li, ul.menu.horizontal > li {
   float: left;
   padding: 10px 10px 10px 10px;
+}
+ul.menu.crumbs > li:first-child, ul.menu.horizontal > li:first-child {
+  padding-left: 0;
+}
+ul.menu.crumbs > li:last-child, ul.menu.horizontal > li:last-child {
+  padding-right: 0;
 }
 ul.menu.crumbs.divided li + li, ul.menu.horizontal.divided li + li {
   border-left: 1px solid rgba(0, 0, 0, 0.12);

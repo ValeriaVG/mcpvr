@@ -22,8 +22,8 @@ ul.menu {
         text-decoration: underline;
     }
 
-    &:not(.crumbs),
-    &.dark {
+    &.dark,
+    &:not(.crumbs) {
         &,
         a {
             color: text('dark-primary');
@@ -32,12 +32,12 @@ ul.menu {
         a:hover,
         li.active,
         li.active > a {
-          background: text('dark-divider');
+            background: text('dark-divider');
         }
     }
 
     &.crumbs,
-    &.inverted{
+    &.inverted {
         &,
         a {
             color: text('dark-secondary');
@@ -46,7 +46,7 @@ ul.menu {
         a:hover,
         li.active,
         li.active > a {
-          color: text('dark-primary');
+            color: text('dark-primary');
         }
     }
 
@@ -77,17 +77,24 @@ ul.menu {
         }
     }
 
-
-
     &.crumbs,
     &.horizontal {
         @include clearfix;
         margin-left: - ceil($base-vertical-line/2);
         margin-right: - floor($base-vertical-line/2);
+        padding: 0 ceil($base-vertical-line/2);
 
         & > li {
             float: left;
             padding: ceil($base-line/2) ceil($base-vertical-line/2) floor($base-line/2) floor($base-vertical-line/2);
+        }
+
+        & > li:first-child {
+            padding-left: 0;
+        }
+
+        & > li:last-child {
+            padding-right: 0;
         }
 
         &.divided {
@@ -100,37 +107,42 @@ ul.menu {
             }
         }
     }
-    &:not(.horizontal){
-      li.dropdown{
-        &>a,&>span{
-          position: relative;
-          padding-right:$base-line;
-          margin-right:-$base-line*0.5;
-          &:after{
-            content:$fa-var-angle-right;
-            right:$base-line*0.5;
-            font-size:$base-line;
-            top:50%;
-          margin-top: -$base-line*0.5;
-          }
-        }
-        &>ul{
-          transform:scaleX(0.01);
-          &.shown{
-            transform:scaleX(1);
-          }
+
+    &:not(.horizontal) {
+        li.dropdown {
+            & > a,
+            & > span {
+                position: relative;
+                padding-right: $base-line;
+                margin-right: -$base-line*0.5;
+
+                &:after {
+                    content: $fa-var-angle-right;
+                    right: $base-line*0.5;
+                    font-size: $base-line;
+                    top: 50%;
+                    margin-top: -$base-line*0.5;
+                }
+            }
+
+            & > ul {
+                transform: scaleX(0.01);
+
+                &.shown {
+                    transform: scaleX(1);
+                }
+            }
         }
 
-      }
-      &.divided {
-           li+li {
-              border-top: 1px solid text('dark-divider');
-          }
+        &.divided {
+            li+li {
+                border-top: 1px solid text('dark-divider');
+            }
 
-          &.light  li+li {
-              border-top: 1px solid text('light-divider');
-          }
-      }
+            &.light li+li {
+                border-top: 1px solid text('light-divider');
+            }
+        }
     }
 
     &.decorated {
@@ -259,7 +271,7 @@ ul.menu {
         }
     }
 
-    &  li.dropdown {
+    & li.dropdown {
         position: relative;
         padding-right: $base-vertical-line/2;
 
@@ -272,7 +284,7 @@ ul.menu {
         }
 
         & > ul {
-        top:0;
+            top: 0;
             position: absolute;
             z-index: 2;
             z-index: 3;
@@ -285,8 +297,9 @@ ul.menu {
 
             li {
                 padding-left: 0;
-                a{
-                  transition: none;
+
+                a {
+                    transition: none;
                 }
             }
 
@@ -298,7 +311,7 @@ ul.menu {
         }
     }
 
-    &.dark  li.dropdown {
+    &.dark li.dropdown {
         & > ul {
             background: text('light-primary');
             border: 1px solid text('dark-divider');
