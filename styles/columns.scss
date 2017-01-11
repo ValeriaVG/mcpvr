@@ -10,9 +10,13 @@ $gutter: $base-vertical-line/2;
 .row {
     @include clearfix();
 
-    &:not(.raw) {
+    & {
         margin-left: -#{ceil($gutter)};
         margin-right: -#{ceil($gutter)};
+    }
+    .row,&.raw{
+      margin-left: 0;
+      margin-right: 0;
     }
 
     &.reversed {
