@@ -20,8 +20,8 @@
 }
 
 .double.rhythm {
-    @extend .double.leader;
-    @extend .double.trailer;
+    margin-top: $base-line*2;
+    margin-bottom: $base-line*2;
 }
 
 .center {

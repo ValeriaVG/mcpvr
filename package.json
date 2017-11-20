@@ -7,7 +7,8 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt qunit:main"
+    "test": "grunt qunit:main",
+    "start": "grunt"
   },
   "devDependencies": {
     "grunt": "^1.0.0",

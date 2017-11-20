@@ -1,4 +1,4 @@
-/*! MCPVR - v0.0.1 - 2017-01-11
+/*! MCPVR - v0.0.1 - 2017-11-20
 * https://valeriavg.github.io/mcpvr/
 * Copyright (c) 2017 ValeriaVG <valeria.viana.gusmao@gmail.com>; Licensed GPL-3.0 */
 var makeColumnsEqual = function(selector) {

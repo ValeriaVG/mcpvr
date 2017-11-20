@@ -13,7 +13,7 @@
     }
     @include media-more-than($base-vertical-line*30) {
         &.text {
-            width: $base-vertical-line*28;
+            max-width: $base-vertical-line*28;
         }
     }
 }

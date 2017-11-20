@@ -2,252 +2,249 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link href="./css/mcpvr.css" rel="stylesheet">
-    <link href="favicon.ico" rel="shortcut icon">
-    <script
-			  src="http://code.jquery.com/jquery-3.1.1.slim.min.js"
-			  integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
-			  crossorigin="anonymous"></script>
-    <script src="js/mcpvr.js"></script>
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    <title>Elements - MCPVR</title>
+  <meta charset="utf-8">
+  <link href="./css/mcpvr.css" rel="stylesheet">
+  <link href="favicon.ico" rel="shortcut icon">
+  <script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+  <script src="js/mcpvr.js"></script>
+  <meta name="viewport" content="initial-scale=1, width=device-width">
+  <title>Elements - MCPVR</title>
 </head>
 
 <body>
-    <!--header-->
-    <div class="bg-pink-600">
-        <div class="double-padded bg-light-primary">
-            <div class="container">
+  <!--header-->
+  <div class="bg-pink-600">
+    <div class="double-padded bg-light-primary">
+      <div class="container">
 
-                <div class="bold dark-hint">
-                    <span class="pink">Material Color Palette</span>
-                    <small>and</small>
-                    <span class="light-blue">Vertical Rhythm</span>
-                    <small>front-end framework</small>
-                </div>
-
-            </div>
+        <div class="bold dark-hint">
+          <span class="pink">Material Color Palette</span>
+          <small>and</small>
+          <span class="light-blue">Vertical Rhythm</span>
+          <small>front-end framework</small>
         </div>
 
-        <div class="container">
-            <ul class="light horizontal decorated menu">
-                <li><a href="index.html">Structure and description</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li class="active"><a href="elements.html">Elements</a></li>
-                <li><a href="typography.html">Typography</a></li>
-            </ul>
+      </div>
+    </div>
 
-        </div>
+    <div class="container">
+      <ul class="light horizontal decorated menu">
+        <li><a href="index.html">Structure and description</a></li>
+        <li><a href="colors.html">Colors</a></li>
+        <li class="active"><a href="elements.html">Elements</a></li>
+        <li><a href="typography.html">Typography</a></li>
+      </ul>
 
     </div>
-    <!--/header-->
-    <div class="reversed raw row bg-grey-50">
-        <div class="col phone-landscape-9 desktop-10 bg-light-primary">
-            <div class="container rhythm">
-                <h1>Elements</h1>
-                <p>MCPVR has tons of cool elements that makes your web-site nice and stylish with little efforts</p>
-                <h2>Vertical rhythm</h2>
-                <p>The main feature of MCPVR is vertical rhythm. Basic typography elements are already tuned to fit in the rhythm.</p>
-                <p>All other elements can be adjusted to the rhythm with helper classes:</p>
-                <ol>
-                    <li><em class="blue">.leader</em> - adds top-margin to the element</li>
-                    <li><em class="blue">.trailer</em> - adds top-margin to the element</li>
-                    <li><em class="blue">.rhythm</em> - adds top and bottom margins to the element</li>
-                </ol>
-                <p>And, if it's not good enough - there's always <em class="blue">.double</em> to double any of those</p>
-                <h2 id="containers">Containers</h2>
-                <p>Containers were made to serve as wrappers for <a href="#grid">grid rows</a>. </p>
-                <p> But they can also be used as side-padded wrappers for anything else </p>
-                <h3>Containers and vertical rhythm</h3>
-                <p>By default containers are going one after another without any margins. You can add <a href="rhythm.html">rhythm classes</a> to specify needed separation and keep the rhythm</p>
-            </div>
-            <div class="bg-blue-grey-50 double-padded trailer light-secondary">
-                <h3 class="text-center dark-divider h4">Preview</h3>
-                <div class="container ">
-                    <p class="bg-dark-hint segment">This paragraph is inside a <em>.container</em></p>
-                </div>
-                <div class="text container  ">
-                    <p class="bg-dark-divider segment">This paragraph is inside a <em>.text.container</em></p>
-                </div>
-            </div>
-            <div class="container">
-                <h2 id="segments">Segments</h2>
-                <p>MCVPR has also a class to specify padded element: <em>.segment</em>. Add <em>.double-padded</em> to make a double padded segment</p>
-            </div>
-            <div class="bg-blue-grey-50 double-padded light-secondary">
-                <h3 class="text-center dark-divider h4">Preview</h3>
-                <div class="container ">
-                    <div class="bg-dark-hint segment">This div is a <em>.segment</em></div>
-                    <div class="bg-dark-divider double-padded">This div is <em>.double-padded</em></div>
-                    <div class="bg-dark-divider segment leader">
-                        <div class="bg-dark-divider double-padded">This div is <em>.double-padded</em> inside a <em>.segment</em></div>
-                    </div>
-                    <div class="bg-dark-divider double-padded leader">
-                        <div class="bg-dark-divider segment">This div is a<em>.segment</em> inside a <em>.double-padded</em> </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="container rhythm">
-                <h2 id="grid">Grid</h2>
-                <p>MCVPR has very simple adaptive grid system. Just place <em>.row</em> inside a <em>.container</em> and fill it with <em class="blue">.col</em>s with needed size</p>
-                <h3>Column sizes</h3>
-                <p>You can add more breakpoints by changing <em class="blue">variables/devices.scss</em></p>
-                <table class="table trailer">
-                    <thead>
-                        <tr>
-                            <th> </th>
-                            <th>Phone (320px)</th>
-                            <th>Phone Landscape (480px)</th>
-                            <th>Tablet (600px)</th>
-                            <th>Laptop (1024px)</th>
-                            <th>Desktop (1240px)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>.col.phone-*</th>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                        </tr>
-                        <tr>
-                            <th>.col.phone-landscape-*</th>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                        </tr>
-                        <tr>
-                            <th>.col.tablet-*</th>
-                            <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                        </tr>
-                        <tr>
-                            <th>.col.laptop-*</th>
-                            <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                        </tr>
-                        <tr>
-                            <th>.col.desktop-*</th>
-                            <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
-                            <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p>You can also specify column offset using <em class="blue">.offset-device-*</em>.</p>
-                <p>If you need padding-free grid - add <em class="blue">.raw</em> to your row</p>
-                <p>If you need you can reverse column order by adding <em class="blue">.reverse</em> or <em class="blue">.reverse-device</em> to a row</p>
-            </div>
-            <div class="bg-blue-grey-50 double-padded light-secondary">
-                <h3 class="text-center dark-divider h4">Preview</h3>
-                <div class="container ">
-                    <div class="row trailer">
-                        <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
-                        <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
-                        <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
-                        <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
-                        <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
-                        <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
-                        <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
-
-                    </div>
-                    <h4 class="text-center">Reversed</h4>
-                    <div class="row reversed">
-                        <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
-                        <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
-                        <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
-                        <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
-                        <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
-                        <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
-                        <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
-                    </div>
-
-                    <h4 class="text-center">Reversed only on phone</h4>
-                    <div class="row phone-reversed">
-                        <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
-                        <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
-                        <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
-                        <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
-                        <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
-                        <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
-                        <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
-                        <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container rhythm">
-                <h2 id="forms">Forms</h2>
-                <p>Framework includes implementation of floating labels design pattern</p>
-            </div>
-            <div class="bg-blue-grey-50 double-padded light-secondary">
-                <h3 class="text-center dark-divider h4">Preview</h3>
-                <form class="form row">
-                    <div class="col tablet-3">
-                        <input type="text" placeholder="Enter some text" required>
-                    </div>
-                    <div class="col tablet-3">
-                        <input type="email" placeholder="Enter some email">
-                    </div>
-                    <div class="col tablet-3">
-                        <input type="number" placeholder="Enter some number">
-                    </div>
-                    <div class="col tablet-3">
-                        <input type="password" placeholder="Enter some password">
-                    </div>
-                    <div class="col tablet-6">
-                      <textarea placeholder="Textarea example"></textarea>
-                    </div>
-                    <div class="col tablet-3">
-                      <input type="checkbox"><label>Hello, I am a checkbox</label><br>
-                      <input type="checkbox"><label>Hello, I am another checkbox</label><br><br>
-                      <input type="radio" name="radio"><label>Hello, I am a radio</label><br> <input type="radio" name="radio"><label>Hello, I am a radio too</label>
-                    </div>
-
-                    <div class="col tablet-3">
-                      <div class="select">
-                      <label>Select something</label>
-                        <select><option>I'm a dropdown list</option></select>
-                      </div>
-                      <button class="btn" type="clear">Clear</button><button class="btn" disabled>Submit</button>
-                    </div>
-                </form>
-            </div>
+  </div>
+  <!--/header-->
+  <div class="reversed raw row bg-grey-50">
+    <div class="col phone-landscape-9 desktop-10 bg-light-primary">
+      <div class="container rhythm">
+        <h1>Elements</h1>
+        <p>MCPVR has tons of cool elements that makes your web-site nice and stylish with little efforts</p>
+        <h2>Vertical rhythm</h2>
+        <p>The main feature of MCPVR is vertical rhythm. Basic typography elements are already tuned to fit in the rhythm.</p>
+        <p>All other elements can be adjusted to the rhythm with helper classes:</p>
+        <ol>
+          <li><em class="blue">.leader</em> - adds top-margin to the element</li>
+          <li><em class="blue">.trailer</em> - adds top-margin to the element</li>
+          <li><em class="blue">.rhythm</em> - adds top and bottom margins to the element</li>
+        </ol>
+        <p>And, if it's not good enough - there's always <em class="blue">.double</em> to double any of those</p>
+        <h2 id="containers">Containers</h2>
+        <p>Containers were made to serve as wrappers for <a href="#grid">grid rows</a>. </p>
+        <p> But they can also be used as side-padded wrappers for anything else </p>
+        <h3>Containers and vertical rhythm</h3>
+        <p>By default containers are going one after another without any margins. You can add <a href="rhythm.html">rhythm classes</a> to specify needed separation and keep the rhythm</p>
+      </div>
+      <div class="bg-blue-grey-50 double-padded trailer light-secondary">
+        <h3 class="text-center dark-divider h4">Preview</h3>
+        <div class="container ">
+          <p class="bg-dark-hint segment">This paragraph is inside a <em>.container</em></p>
         </div>
-        <div class="col phone-landscape-3 desktop-2 ">
-            <div class="double-padded">
-                <ul class="decorated menu  text-right">
-                    <li><a href="#vr">Vertical rhythm</a></li>
-                    <li><a href="#containers">Containers</a></li>
-                    <li><a href="#segments">Segments</a></li>
-                    <li><a href="#grid">Grid</a></li>
-                </ul>
-            </div>
-
+        <div class="text container  ">
+          <p class="bg-dark-divider segment">This paragraph is inside a <em>.text.container</em></p>
         </div>
+      </div>
+      <div class="container">
+        <h2 id="segments">Segments</h2>
+        <p>MCVPR has also a class to specify padded element: <em>.segment</em>. Add <em>.double-padded</em> to make a double padded segment</p>
+      </div>
+      <div class="bg-blue-grey-50 double-padded light-secondary">
+        <h3 class="text-center dark-divider h4">Preview</h3>
+        <div class="container ">
+          <div class="bg-dark-hint segment">This div is a <em>.segment</em></div>
+          <div class="bg-dark-divider double-padded">This div is <em>.double-padded</em></div>
+          <div class="bg-dark-divider segment leader">
+            <div class="bg-dark-divider double-padded">This div is <em>.double-padded</em> inside a <em>.segment</em></div>
+          </div>
+          <div class="bg-dark-divider double-padded leader">
+            <div class="bg-dark-divider segment">This div is a<em>.segment</em> inside a <em>.double-padded</em> </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container rhythm">
+        <h2 id="grid">Grid</h2>
+        <p>MCVPR has very simple adaptive grid system. Just place <em>.row</em> inside a <em>.container</em> and fill it with <em class="blue">.col</em>s with needed size</p>
+        <h3>Column sizes</h3>
+        <p>You can add more breakpoints by changing <em class="blue">variables/devices.scss</em></p>
+        <table class="table trailer">
+          <thead>
+            <tr>
+              <th> </th>
+              <th>Phone (320px)</th>
+              <th>Phone Landscape (480px)</th>
+              <th>Tablet (600px)</th>
+              <th>Laptop (1024px)</th>
+              <th>Desktop (1240px)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>.col.phone-*</th>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+            </tr>
+            <tr>
+              <th>.col.phone-landscape-*</th>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+            </tr>
+            <tr>
+              <th>.col.tablet-*</th>
+              <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+            </tr>
+            <tr>
+              <th>.col.laptop-*</th>
+              <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+            </tr>
+            <tr>
+              <th>.col.desktop-*</th>
+              <td class="text-center"><i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa grey fa-close fa-2x"></i></td>
+              <td class="text-center"> <i class="fa green fa-check fa-2x"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>You can also specify column offset using <em class="blue">.offset-device-*</em>.</p>
+        <p>If you need padding-free grid - add <em class="blue">.raw</em> to your row</p>
+        <p>If you need you can reverse column order by adding <em class="blue">.reverse</em> or <em class="blue">.reverse-device</em> to a row</p>
+      </div>
+      <div class="bg-blue-grey-50 double-padded light-secondary">
+        <h3 class="text-center dark-divider h4">Preview</h3>
+        <div class="container ">
+          <div class="row trailer">
+            <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
+            <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
+            <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
+            <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
+            <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
+            <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
+            <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
+            <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
+
+          </div>
+          <h4 class="text-center">Reversed</h4>
+          <div class="row reversed">
+            <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
+            <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
+            <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
+            <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
+            <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
+            <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
+            <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
+            <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
+          </div>
+
+          <h4 class="text-center">Reversed only on phone</h4>
+          <div class="row phone-reversed">
+            <div class="col phone-5 bg-dark-secondary">.col.phone-5</div>
+            <div class="col phone-4 bg-dark-divider">.col.phone-4</div>
+            <div class="col phone-3 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-landscape-3 tablet-4 bg-dark-secondary">.col.phone-landscape-3.tablet-4</div>
+            <div class="col phone-landscape-4 tablet-4 bg-dark-divider">.col.phone-landscape-4.tablet-4</div>
+            <div class="col phone-landscape-5 tablet-4 bg-dark-secondary">.col.phone-landscape-5.tablet-4</div>
+            <div class="col phone-4 bg-dark-secondary">.col.phone-4</div>
+            <div class="col offset-phone-4 phone-4 bg-dark-secondary">.col.phone-3</div>
+            <div class="col phone-3 bg-dark-secondary">.col.offset-phone-4.phone-4</div>
+            <div class="col offset-desktop-3 phone-3 bg-dark-secondary">.col.offset-desktop-3.phone-3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container rhythm">
+        <h2 id="forms">Forms</h2>
+        <p>Framework includes implementation of floating labels design pattern</p>
+      </div>
+      <div class="bg-blue-grey-50 double-padded light-secondary">
+        <h3 class="text-center dark-divider h4">Preview</h3>
+        <form class="form row">
+          <div class="col tablet-3">
+            <input type="text" placeholder="Enter some text" required>
+          </div>
+          <div class="col tablet-3">
+            <input type="email" placeholder="Enter some email">
+          </div>
+          <div class="col tablet-3">
+            <input type="number" placeholder="Enter some number">
+          </div>
+          <div class="col tablet-3">
+            <input type="password" placeholder="Enter some password">
+          </div>
+          <div class="col tablet-6">
+            <textarea placeholder="Textarea example"></textarea>
+          </div>
+          <div class="col tablet-3">
+            <input type="checkbox"><label>Hello, I am a checkbox</label><br>
+            <input type="checkbox"><label>Hello, I am another checkbox</label><br><br>
+            <input type="radio" name="radio"><label>Hello, I am a radio</label><br> <input type="radio" name="radio"><label>Hello, I am a radio too</label>
+          </div>
+
+          <div class="col tablet-3">
+            <div class="select">
+              <label>Select something</label>
+              <select><option>I'm a dropdown list</option></select>
+            </div>
+            <button class="btn" type="clear">Clear</button><button class="btn" disabled>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
+    <div class="col phone-landscape-3 desktop-2 ">
+      <div class="double-padded">
+        <ul class="decorated menu  text-right">
+          <li><a href="#vr">Vertical rhythm</a></li>
+          <li><a href="#containers">Containers</a></li>
+          <li><a href="#segments">Segments</a></li>
+          <li><a href="#grid">Grid</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 
 
 
