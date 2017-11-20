@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Neucha&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Spectral+SC&subset=cyrillic");
 body .red {
   color: #f44336;
 }
@@ -5248,7 +5248,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Neucha", sans-serif;
+  font-family: "Spectral SC", sans-serif;
   color: rgba(0, 0, 0, 0.54);
 }
 
