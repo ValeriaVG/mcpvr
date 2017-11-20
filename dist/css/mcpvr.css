@@ -6860,7 +6860,8 @@ table.table thead {
   transform: translateY(0);
   overflow: hidden;
   white-space: nowrap;
-  width: 90%;
+  max-width: 90%;
+  width: auto;
   z-index: 1;
 }
 .form label.active {

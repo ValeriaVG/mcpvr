@@ -1,143 +1,147 @@
 // Floating Label Form implementation
 
 .form {
-    label {
-        color: text("dark-hint");
-        font-size: $base-line/2;
-        line-height: $base-line;
-        //padding-left: ceil($base-vertical-line/2);
-        //padding-right: floor($base-vertical-line/2);
-        position: absolute;
-        display: inline;
-        text-overflow: ellipsis;
-        opacity: 1;
-        transition: 100ms ease-out;
-        transform: translateY(0);
-        overflow: hidden;
-white-space: nowrap;
-width: 90%;
-z-index:1;
+  label {
+    color: text("dark-hint");
+    font-size: $base-line/2;
+    line-height: $base-line;
+    //padding-left: ceil($base-vertical-line/2);
+    //padding-right: floor($base-vertical-line/2);
+    position: absolute;
+    display: inline;
+    text-overflow: ellipsis;
+    opacity: 1;
+    transition: 100ms ease-out;
+    transform: translateY(0);
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 90%;
+    width: auto;
+    z-index: 1;
 
-        &.active {
-            color: palette($active,"500");
-            transition: 100ms ease-out;
-        }
-
-        &.error {
-            color: palette($error,"500");
-            transition: 100ms ease-out;
-        }
-
-        &.valid {
-            color: palette($valid,"500");
-            transition: 100ms ease-out;
-        }
-
-        &.hidden {
-            transform: translateY($base-line);
-            opacity: 0;
-            transition: 100ms ease-out;
-        }
+    &.active {
+      color: palette($active,"500");
+      transition: 100ms ease-out;
     }
 
-    input+label {
-        position: relative;
+    &.error {
+      color: palette($error,"500");
+      transition: 100ms ease-out;
     }
 
-    input[type=checkbox],
-    input[type=radio] {
-        height: $base-line;
-        width: $base-line;
-        padding: 0;
-        margin: 0;
-        vertical-align: bottom;
-        position: relative;
-        top: -1px;
-        overflow: hidden;
+    &.valid {
+      color: palette($valid,"500");
+      transition: 100ms ease-out;
     }
 
-    .input {
-        border: 0;
-        border-bottom: 1px solid text("dark-divider");
-        padding: $base-line ceil($base-vertical-line/2) ($base-line/2 + 2px) floor($base-vertical-line/2);
-        display: block;
-        width: 100%;
-        background: transparent;
-        height: $base-line*2.5;
-        margin-bottom: $base-line*0.5;
-        outline: none!important;
-        position: relative;
-        z-index: 2;
+    &.hidden {
+      transform: translateY($base-line);
+      opacity: 0;
+      transition: 100ms ease-out;
+    }
+  }
 
-        &:invalid {
-            border: 0;
-            border-bottom: 1px solid palette($error,"500");
-            outline: none;
-            box-shadow: none;
-        }
+  input+label {
+    position: relative;
+  }
 
-        &.valid {
-            border: 0;
-            border-bottom: 1px solid palette($valid,"500");
-            outline: none;
-            box-shadow: none;
-        }
+  input[type=checkbox],
+  input[type=radio] {
+    height: $base-line;
+    width: $base-line;
+    padding: 0;
+    margin: 0;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+    overflow: hidden;
+  }
 
-        &:focus {
-            border-color: palette($active,"300");
-        }
+  .input {
+    border: 0;
+    border-bottom: 1px solid text("dark-divider");
+    padding: $base-line ceil($base-vertical-line/2) ($base-line/2 + 2px) floor($base-vertical-line/2);
+    display: block;
+    width: 100%;
+    background: transparent;
+    height: $base-line*2.5;
+    margin-bottom: $base-line*0.5;
+    outline: none!important;
+    position: relative;
+    z-index: 2;
+
+    &:invalid {
+      border: 0;
+      border-bottom: 1px solid palette($error,"500");
+      outline: none;
+      box-shadow: none;
     }
 
-    input {
-        &[type=email],
-        &[type=number],
-        &[type=password],
-        &[type=tel],
-        &[type=text] {
-            @extend .input;
-        }
+    &.valid {
+      border: 0;
+      border-bottom: 1px solid palette($valid,"500");
+      outline: none;
+      box-shadow: none;
     }
 
-    textarea {
-        @extend .input;
-        height: $base-line*5.5;
+    &:focus {
+      border-color: palette($active,"300");
     }
+  }
 
-    select {
-        @extend .input;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-
-        &::-ms-expand {
-            /* for IE 11 */
-            display: none;
-        }
-        position: relative;
-        z-index:2;
+  input {
+    &[type=email],
+    &[type=number],
+    &[type=password],
+    &[type=tel],
+    &[type=text] {
+      @extend .input;
     }
-.select{
-    position:relative;
+  }
 
-    &:after{
+  textarea {
+    @extend .input;
+    height: $base-line*5.5;
+  }
+
+  select {
+    @extend .input;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &::-ms-expand {
+      /* for IE 11 */
+      display: none;
+    }
+    position: relative;
+    z-index: 2;
+  }
+
+  .select {
+    position: relative;
+
+    &:after {
       position: absolute;
       content: $fa-var-angle-down;
       font-family: 'FontAwesome';
-      right:$base-vertical-line/4;
-      top:ceil($base-line);
-      color:text('dark-hint');
+      right: $base-vertical-line/4;
+      top: ceil($base-line);
+      color: text('dark-hint');
       display: block;
-      z-index:1;
+      z-index: 1;
     }
   }
 }
-.btn{
-  border:none;
-  color:palette($active,"500");
+
+.btn {
+  border: none;
+  color: palette($active,"500");
   text-transform: uppercase;
   background: transparent;
-  display:inline-block;
-  &:disabled{
+  display: inline-block;
+
+  &:disabled {
     color: text('dark-hint');
   }
 }
